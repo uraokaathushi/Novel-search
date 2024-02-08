@@ -1,0 +1,49 @@
+<div class='container'>
+ <div class='row'>
+  <div class='col-md-12'>
+
+  <div class='row'>
+     <div class='col-md-1'></div>
+   <div class='col-md-3 text-center'>
+    <h3 class="table-active">会員情報編集</h3>
+   </div>
+   <div class='col-md-9'></div>
+   </div>
+
+  <div class="mb-4"></div>
+
+     <%= form_with model: @customer, url: public_edit_customer_path, local: true do |form| %>
+     <%= render "public/shared/error_messages", resource: @customer %>
+
+      <div class='row'>
+       <div class='col-3'><h4><%= form.label :name, "名前" %></h4></div>
+       <div class='col-3'><h4><%= form.text_field :name %></h4></div>
+       <div class='col-3'></div>
+       <div class='col-3'></div>
+      </div>
+
+     <div class='row'>
+      <div class='col-3'><h4><%= form.label :email, "メールアドレス" %></h4></div>
+      <div class='col-3'><h4><%= form.email_field :email, autofocus: true, autocomplete: "email" %></h4></div>
+      <div class='col-6'></div>
+     </div>
+
+
+    <div class='row'>
+      <div class="col-md-7 text-right">
+        <div class="actions">
+       　　<%= form.submit "編集内容を保存", class:"btn btn-success btn-lg", style: "width: 50%" %>
+     　　</div>
+     　</div>
+
+      <div class="col-md-4 text-right">
+       <%= link_to unsubscribe_customer_path, class: "btn btn-danger btn-lg", style: "width: 50%" do %>
+       <i>退会する</i>
+       <% end %>
+       </div>
+    </div>
+
+  <% end %>
+</div>
+</div>
+</div>
