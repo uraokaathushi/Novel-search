@@ -3,4 +3,8 @@ class Favorite < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+         belongs_to :customer
+         belongs_to :novel
+
 end

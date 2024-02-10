@@ -1,0 +1,44 @@
+<div class='container px-5 px-sm-0'>
+
+ <div class='row'>
+  <div class='col-md-12'>
+   <h2 class='text-center'>本当に退会しますか？</h2>
+  </div>
+ </div>
+
+ <div class="mb-4"></div>
+
+  <div class='row'>
+   <div class='col-md-12'>
+    <div class="d-flex justify-content-center">
+      <div class="text-center">
+        <h3>退会すると、新しく作品を登録できなくなり、</h3>
+        <h3>これまで投稿した作品の編集や確認等ができなくなります。</h3>
+        <h3>退会する場合は、「退会する」をクリックしてください。</h3>
+      </div>
+    </div>
+ 　 </div>
+  </div>
+
+ <div class="mb-4"></div>
+
+  <div class='row'>
+   <div class='col-md-12'>
+     <div class="d-flex justify-content-center align-items-center">
+      <% if current_customer == @customer %>
+
+         <div class='col-6 text-right'>
+         <%= link_to customer_my_page_path, class: "btn btn-primary btn-lg" do %>
+          <i>退会しない</i>
+         <% end %>
+        </div>
+
+　　　　<div class='col-6'>
+         <%= link_to withdraw_customer_path, method: :patch, class: "btn btn-danger btn-lg" do %>
+          <i>退会する</i>
+         <% end %>
+　　　　</div>
+      <% end %>
+    </div>
+    </div>
+  </div>

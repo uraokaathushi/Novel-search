@@ -1,0 +1,44 @@
+<div class="container">
+
+  <div class="row">
+    <h2>作品投稿</h2>
+  </div>
+
+  <%= form_with model: @novel do |f| %>
+
+  <div class="row">
+    <div class="col">
+    <p>タイトル</p>
+    </div>
+    <div class="col">
+      <%= f.text_field :taitle,autofocus: true %>
+    </div>
+  </div>
+
+  <!--<div class="row"></div> ジャンル選択画面-->
+
+  <div class="row">
+    <div class="col">
+    <p>掲載サイト</p>
+    </div>
+    <div class="col">
+      <%= f.text_field :site_name,autofocus: true %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+    <p>レビュー</p>
+    </div>
+    <div class="col">
+      <%= f.text_area :review,autofocus: true %>
+    </div>
+  </div>
+
+  <div class="row">
+   <div class="actions">
+     <%= form.submit "作品情報を投稿", class: 'btn btn-success btn-lg', style: "width: 80%"  %>
+   </div>
+  </div>
+
+</div>

@@ -39,7 +39,7 @@ class Public::SessionsController < Devise::SessionsController
   def reject_customer
     @customer = Customer.find_by(email: params[:customer][:name])
       if @customer
-        if @customer.valid_password?(params[:customer][:password]) && (@customer.is_active == false)
+        if @customer.valid_password?(params[:customer][:password][:name]) && (@customer.is_active == false)
           flash[:notice] = "退会済みです。再度ご登録をしてご利用ください。"
         redirect_to new_customer_registration_path
         end
@@ -47,17 +47,18 @@ class Public::SessionsController < Devise::SessionsController
   end
 
   # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_in_params
-  #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
-  # end
+   def configure_sign_in_params
+     devise_parameter_sanitizer.permit(:sign_in, keys: [:name, :password])
+   end
 
-  private
   
    def customer_state
      customer = Customer.find_by(email: params[:customer][:password][:name])
      return if customer.nil?
      return unless customer.valid_password?(params[:customer][:password][:name])
    end
+
+  private
 
     def customer_params
      params.require(:customer).permit(:name, :email, :encrypted_password, :password_confirmation)

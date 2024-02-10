@@ -1,0 +1,48 @@
+<div class='container'>
+
+  <div class='row'>
+     <div class='col-md-1'></div>
+   <div class='col-md-3 text-center'>
+    <h3 class="table-active">投稿作品編集</h3>
+   </div>
+   <div class='col-md-9'></div>
+   </div>
+
+  <div class="mb-4"></div>
+
+     <%= form_with model: @novel, url: public_novel_path, local: true do |f| %>
+
+    <div class="row">
+   　 <div class="col-md-7"><%= f.text_field :taitle, autofocus: true %></div>
+      <div class="col-md-5"></div>
+    </div>
+
+    <!--<div class="row">-->
+    <!-- <div class="col-md-2"><p>ジャンル</p></div>-->
+    <!-- <div class="col-md-7"><!%= f.text_field :genre_name, autofocus: true %></div>-->
+    <!--</div>-->
+
+    <div class="row">
+      <div class="col-md-2"><p>サイト</p></div>
+      <div class="col-md-7"><%= f.text_field :site_name, autofocus: true %></div>
+      <div class="col-md-3"></div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2"><p>レビュー</p></div>
+      <div class="col-md-10"><%= f.text_area :review, autofocus: true %></div>
+    </div>
+
+
+    <div class='row'>
+      <div class="col-md-7 text-right">
+        <div class="actions">
+       　　<%= form.submit "編集内容を保存", class:"btn btn-success btn-lg", style: "width: 50%" %>
+     　　</div>
+     　</div>
+
+    </div>
+
+  <% end %>
+
+</div>
