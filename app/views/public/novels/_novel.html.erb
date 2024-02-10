@@ -1,9 +1,6 @@
-    <%# if f.user_id == current_user.id && controller.controller_name == 'userController' %>
-      <button>Edit</button>
-    <%# end %>
 
     <div class="row">
-      <div class="col-md-7"><%= novel.text_field :title, autofocus: true %></div>
+      <div class="col-md-7"><%= novel.title %></div>
       <div class="col-md-5"></div>
     </div>
 
@@ -12,15 +9,19 @@
     <!-- <div class="col-md-7"><!%= f.text_field :genre_name, autofocus: true %></div>-->
     <!--</div>-->
 
+    <% if novel.customer_id == current_customer.id && controller.controller_name == 'customers_controller' %>
+      <button>Edit</button>
+    <% end %>
+
     <div class="row">
       <div class="col-md-2"><p>サイト</p></div>
-      <div class="col-md-7"><%= novel.text_field :site_name, autofocus: true %></div>
+      <div class="col-md-7"><%= novel.site_name %></div>
       <div class="col-md-3"></div>
     </div>
 
     <div class="row">
       <div class="col-md-2"><p>レビュー</p></div>
-      <div class="col-md-10"><%= novel.text_area :review, autofocus: true %></div>
+      <div class="col-md-10"><%= novel.review %></div>
     </div>
 
     <!--<div class="row">-->

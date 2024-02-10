@@ -30,7 +30,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
  namespace :public do
     resources :novels, only: [:new, :create, :index, :show, :edit, :update, :destroy]
     resources :comments, only: [:create, :index, :destroy]
-    resources :favorites, only: [:create, :destroy]
+    resources :favorites, only: [:create, :destroy, :index]
    get '/ny_novels' =>'customers#my_novels', as: :'my_novels'
    get '/customers/information/edit' => 'customers#edit', as: 'edit_customer'
    get '/customers/my_page' => 'customers#show', as: 'customer_my_page'

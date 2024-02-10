@@ -11,7 +11,7 @@
 
   <div class="mb-4"></div>
 
-     <%= form_with model: @customer, url: public_edit_customer_path, local: true do |form| %>
+     <%= form_with model: @customer, url: public_information_path, local: true do |form| %>
      <%= render "public/shared/error_messages", resource: @customer %>
 
       <div class='row'>
@@ -36,7 +36,7 @@
      　</div>
 
       <div class="col-md-4 text-right">
-       <%= link_to unsubscribe_customer_path, class: "btn btn-danger btn-lg", style: "width: 50%" do %>
+       <%= link_to public_unsubscribe_customer_path, class: "btn btn-danger btn-lg", style: "width: 50%" do %>
        <i>退会する</i>
        <% end %>
        </div>

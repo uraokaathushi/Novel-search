@@ -15,7 +15,7 @@ class Public::CustomersController < ApplicationController
   def update
     @customer = current_customer
     @customer.update(customer_params)
-    redirect_to '/customers/my_page'
+    redirect_to public_customer_my_page_path
   end
 
   def unsubscribe
@@ -29,7 +29,7 @@ class Public::CustomersController < ApplicationController
     flash[:notice] = "退会処理を実行いたしました"
     redirect_to root_path
   end
-  
+
   def my_novels
     @novels = current_customer.novels
   end

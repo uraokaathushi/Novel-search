@@ -5,14 +5,14 @@ class Public::NovelsController < ApplicationController
   end
 
   def create
-    @novel = Novel.new(params[:id])
-    @novel.customer_id = current_customer
+    @novel = Novel.new(novel_params)
+    @novel.customer_id = current_customer.id
     @novel.save
     redirect_to  public_customer_my_page_path
   end
 
   def index
-    @novel = Novel.all
+    @novels = Novel.all
   end
 
   def show

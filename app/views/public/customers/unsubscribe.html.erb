@@ -28,13 +28,13 @@
       <% if current_customer == @customer %>
 
          <div class='col-6 text-right'>
-         <%= link_to customer_my_page_path, class: "btn btn-primary btn-lg" do %>
+         <%= link_to public_customer_my_page_path, class: "btn btn-primary btn-lg" do %>
           <i>退会しない</i>
          <% end %>
         </div>
 
 　　　　<div class='col-6'>
-         <%= link_to withdraw_customer_path, method: :patch, class: "btn btn-danger btn-lg" do %>
+         <%= link_to public_withdraw_customer_path, method: :patch, class: "btn btn-danger btn-lg" do %>
           <i>退会する</i>
          <% end %>
 　　　　</div>

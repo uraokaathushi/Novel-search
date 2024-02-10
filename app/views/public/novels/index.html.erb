@@ -2,9 +2,12 @@
 
   <h2>投稿作品一覧</h2>
 
-
-    <% @novels.each do |novel| %>
-      <%= render 'novels/novel',  novel: novel %>
-　　<% end %>
+ <div class='row'>
+  <th>
+  <% @novels.each do |novel| %>
+   <%= render 'public/novels/novel', novel: novel %>
+  <% end %>
+  </th>
+ </div>
 
 </div>
