@@ -31,7 +31,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     resources :novels, only: [:new, :create, :index, :show, :edit, :update, :destroy]
     resources :comments, only: [:create, :index, :destroy]
     resources :favorites, only: [:create, :destroy]
-
+   get '/ny_novels' =>'customers#my_novels', as: :'my_novels'
    get '/customers/information/edit' => 'customers#edit', as: 'edit_customer'
    get '/customers/my_page' => 'customers#show', as: 'customer_my_page'
    patch '/customers/information' => 'customers#update', as: 'information'

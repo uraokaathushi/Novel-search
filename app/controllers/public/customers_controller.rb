@@ -3,6 +3,7 @@ class Public::CustomersController < ApplicationController
 
   def show
     @customer = current_customer
+    @novels = current_customer.novels #Novel.where(:user_id=>current_customer.id)
   end
 
   def edit
@@ -27,6 +28,10 @@ class Public::CustomersController < ApplicationController
     reset_session
     flash[:notice] = "退会処理を実行いたしました"
     redirect_to root_path
+  end
+  
+  def my_novels
+    @novels = current_customer.novels
   end
 
    private

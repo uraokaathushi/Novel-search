@@ -28,7 +28,7 @@ class Public::SessionsController < Devise::SessionsController
   #   super
   # end
   def after_sign_in_path_for(resource)
-   root_path
+   public_customer_my_page_path
   end
   # DELETE /resource/sign_out
   # def destroy
@@ -41,7 +41,9 @@ class Public::SessionsController < Devise::SessionsController
       if @customer
         if @customer.valid_password?(params[:customer][:password][:name]) && (@customer.is_active == false)
           flash[:notice] = "退会済みです。再度ご登録をしてご利用ください。"
-        redirect_to new_customer_registration_path
+          redirect_to new_customer_registration_path
+        else
+          redirect_to public_customer_my_page_path
         end
       end
   end
@@ -51,7 +53,7 @@ class Public::SessionsController < Devise::SessionsController
      devise_parameter_sanitizer.permit(:sign_in, keys: [:name, :password])
    end
 
-  
+
    def customer_state
      customer = Customer.find_by(email: params[:customer][:password][:name])
      return if customer.nil?

@@ -1,0 +1,30 @@
+    <%# if f.user_id == current_user.id && controller.controller_name == 'userController' %>
+      <button>Edit</button>
+    <%# end %>
+
+    <div class="row">
+      <div class="col-md-7"><%= novel.text_field :title, autofocus: true %></div>
+      <div class="col-md-5"></div>
+    </div>
+
+    <!--<div class="row">-->
+    <!-- <div class="col-md-2"><p>ジャンル</p></div>-->
+    <!-- <div class="col-md-7"><!%= f.text_field :genre_name, autofocus: true %></div>-->
+    <!--</div>-->
+
+    <div class="row">
+      <div class="col-md-2"><p>サイト</p></div>
+      <div class="col-md-7"><%= novel.text_field :site_name, autofocus: true %></div>
+      <div class="col-md-3"></div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2"><p>レビュー</p></div>
+      <div class="col-md-10"><%= novel.text_area :review, autofocus: true %></div>
+    </div>
+
+    <!--<div class="row">-->
+    <!-- <div class="col-md-2"><p>お気に入り</p></div>-->
+    <!-- <div class="col-md-3"><i class="fa-light fa-star" style="color: yello;"></i><!%= @f.favorites.count %> </div>-->
+    <!--<div class="col-md-7"></div>-->
+    <!--</div>-->

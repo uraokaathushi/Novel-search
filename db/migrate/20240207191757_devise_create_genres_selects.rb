@@ -7,11 +7,11 @@ class DeviseCreateGenresSelects < ActiveRecord::Migration[6.1]
     t.integer :novel_id, null: false
 
       ## Recoverable
-      t.string   :reset_password_token
-      t.datetime :reset_password_sent_at
+      # t.string   :reset_password_token
+      # t.datetime :reset_password_sent_at
 
-      ## Rememberable
-      t.datetime :remember_created_at
+      # ## Rememberable
+      # t.datetime :remember_created_at
 
       ## Trackable
       # t.integer  :sign_in_count, default: 0, null: false
@@ -35,9 +35,5 @@ class DeviseCreateGenresSelects < ActiveRecord::Migration[6.1]
       t.timestamps null: false
     end
 
-    add_index :genres_selects, :email,                unique: true
-    add_index :genres_selects, :reset_password_token, unique: true
-    # add_index :genres_selects, :confirmation_token,   unique: true
-    # add_index :genres_selects, :unlock_token,         unique: true
   end
 end

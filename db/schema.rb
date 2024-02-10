@@ -28,13 +28,8 @@ ActiveRecord::Schema.define(version: 2024_02_07_191757) do
     t.integer "customer_id", null: false
     t.integer "novel_id", null: false
     t.text "comment"
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index "\"email\"", name: "index_comments_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_comments_on_reset_password_token", unique: true
   end
 
   create_table "customers", force: :cascade do |t|
@@ -54,50 +49,30 @@ ActiveRecord::Schema.define(version: 2024_02_07_191757) do
   create_table "favorites", force: :cascade do |t|
     t.integer "customer_id", null: false
     t.integer "novel_id", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index "\"email\"", name: "index_favorites_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_favorites_on_reset_password_token", unique: true
   end
 
   create_table "genres", force: :cascade do |t|
     t.string "genre_name"
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index "\"email\"", name: "index_genres_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_genres_on_reset_password_token", unique: true
   end
 
   create_table "genres_selects", force: :cascade do |t|
     t.integer "genre_name_id", null: false
     t.integer "novel_id", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index "\"email\"", name: "index_genres_selects_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_genres_selects_on_reset_password_token", unique: true
   end
 
   create_table "novels", force: :cascade do |t|
     t.integer "customer_id", null: false
-    t.string "taitle"
+    t.string "title"
     t.string "site_name"
     t.text "review"
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index "\"email\"", name: "index_novels_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_novels_on_reset_password_token", unique: true
   end
 
 end

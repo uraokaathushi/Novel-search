@@ -4,17 +4,17 @@ class DeviseCreateNovels < ActiveRecord::Migration[6.1]
   def change
     create_table :novels do |t|
       t.integer :customer_id, null: false
-      t.string :taitle
+      t.string :title
       t.string :site_name
       t.text :review
 
 
       ## Recoverable
-      t.string   :reset_password_token
-      t.datetime :reset_password_sent_at
+      # t.string   :reset_password_token
+      # t.datetime :reset_password_sent_at
 
-      ## Rememberable
-      t.datetime :remember_created_at
+      # ## Rememberable
+      # t.datetime :remember_created_at
 
       ## Trackable
       # t.integer  :sign_in_count, default: 0, null: false
@@ -38,9 +38,5 @@ class DeviseCreateNovels < ActiveRecord::Migration[6.1]
       t.timestamps null: false
     end
 
-    add_index :novels, :email,                unique: true
-    add_index :novels, :reset_password_token, unique: true
-    # add_index :novels, :confirmation_token,   unique: true
-    # add_index :novels, :unlock_token,         unique: true
   end
 end

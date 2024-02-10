@@ -4,14 +4,14 @@
     <h2>作品投稿</h2>
   </div>
 
-  <%= form_with model: @novel do |f| %>
+  <%= form_with model: @novel, url: public_novels_path do |f| %>
 
   <div class="row">
     <div class="col">
     <p>タイトル</p>
     </div>
     <div class="col">
-      <%= f.text_field :taitle,autofocus: true %>
+      <%= f.text_field :title,autofocus: true %>
     </div>
   </div>
 
@@ -37,8 +37,8 @@
 
   <div class="row">
    <div class="actions">
-     <%= form.submit "作品情報を投稿", class: 'btn btn-success btn-lg', style: "width: 80%"  %>
+     <%= f.submit "作品情報を投稿", class: 'btn btn-success btn-lg', style: "width: 80%"  %>
    </div>
   </div>
-
+<% end %>
 </div>
