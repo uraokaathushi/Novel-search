@@ -1,0 +1,13 @@
+<div class="container">
+
+  <h2>投稿作品一覧</h2>
+
+ <div class='row'>
+  <th>
+  <% @novels.each do |novel| %>
+   <%= render 'public/novels/novel', novel: novel, id: novel.id %>
+  <% end %>
+  </th>
+ </div>
+
+</div>

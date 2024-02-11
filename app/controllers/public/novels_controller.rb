@@ -21,17 +21,16 @@ class Public::NovelsController < ApplicationController
 
   def edit
     @novel = Novel.find_by(id: params[:id])
-     if @novel.nil?
-      redirect_to public_novel_path(@novel)
-     else
-      render :index
-     end
+    if @novel.nil?
+      @novels = Novel.all
+      redirect_to public_novels_path
+    end
   end
 
   def update
    @novel = Novel.find(params[:id])
    if @novel.update(novel_params)
-   redirect_to public_novel_path(@novel)
+   redirect_to public_novels_path(@novel)
    else
     render :edit
    end

@@ -30,7 +30,7 @@ class Public::CustomersController < ApplicationController
     redirect_to root_path
   end
 
-  def my_novels
+  def my_novel
     @novels = current_customer.novels
   end
 
