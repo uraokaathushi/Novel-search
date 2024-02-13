@@ -6,7 +6,7 @@ class Customer < ApplicationRecord
          
     has_many :novels
     has_many :favorites
-    has_many :comments
+    has_many :comments, dependent: :destroy
     
   
   def self.guest
