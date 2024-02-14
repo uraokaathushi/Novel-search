@@ -15,19 +15,20 @@
   <body>
      <div class="container">
          <div class="row">
-          <%= link_to "アバウト", about_path %>
+           <div class="col-md-8"></div>
+           <div class="col-md-1"><%= link_to "アバウト", about_path %></div>
+           <div class="col-md-1"><%= link_to "新規登録", new_customer_registration_path %></div>
+           <div class="col-md-1"><%= link_to "ログイン", new_customer_session_path %></div>
+           <div class="col-md-1"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></div>
         </div>
 
+        <div class="row">
+          <div class="col-md-4"></div>
+          <div class="col-md-2"><%= link_to "作品一覧", public_novels_path %></div>
+          <div class="col-md-2"><%#= link_to "検索", _path %></div>
+        </div>
 
-        <div class="row">
-          <%= link_to "新規登録", new_customer_registration_path %>
-        </div>
-        <div class="row">
-          <%= link_to "ログイン", new_customer_session_path %>
-        </div>
-        <div class="row">
-          <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
-        </div>
+        <div class="row mb-5"></div>
     <%= yield %>
     </div>
   </body>

@@ -12,7 +12,7 @@ class Public::SessionsController < Devise::SessionsController
   def guest_login
     customer = Customer.guest
     sign_in(customer)
-    redirect_to root_path(user), notice: "ゲストでログインしました。"
+    redirect_to root_path, notice: "ゲストでログインしました。"
   end
 
   def destroy_guest

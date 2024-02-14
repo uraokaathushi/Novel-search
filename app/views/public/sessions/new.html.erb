@@ -1,3 +1,5 @@
+<div class="container">
+
 <h2>ログイン画面</h2>
 
 <%= form_with model: @customer, url: customer_session_path, local: true do |f| %>
@@ -17,4 +19,19 @@
   </div>
 <% end %>
 
-<%= render "public/shared/links" %>
+  <div class="row">
+   <div class="col-md-4"></div>
+   <div class="col-md-4"><%= link_to "ゲストログイン（閲覧用）", customer_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
+   </div>
+   <div class="col-md-4"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">会員登録がまだの方</div>
+    <div class="col-md-9"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-5">
+    <%= render "public/shared/links" %>から新規登録してください</div>
+    <div class="col-md-5"></div>

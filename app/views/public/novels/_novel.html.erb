@@ -1,6 +1,8 @@
 
     <div class="row">
-      <div class="col-md-7"><%= novel.title %></div>
+      <div class="col-md-7">
+        <a href="<%= public_novel_path(novel)%>">
+        <%= novel.title %></a></div>
       <div class="col-md-5">
      <% if novel.customer_id == current_customer.id %>
      <%= link_to edit_public_novel_path(novel), class: "btn btn-success btn-lg" do %>

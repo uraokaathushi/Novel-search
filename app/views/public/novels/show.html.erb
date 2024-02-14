@@ -7,8 +7,10 @@
       <div class="col-md-6"><%= @novel.title %></div>
       <div class='col-md-3'>
       </div>
-    </div>
+     </div>
 
+
+     <div class="row mb-5"></div>
         <!--<div class="row">-->
     <!-- <div class="col-md-2"><p>ジャンル</p></div>-->
     <!-- <div class="col-md-7"><!%= @novel.text_field :genre_name, autofocus: true %></div>-->
@@ -31,6 +33,12 @@
     <!--<div class="col-md-7"></div>-->
     <!--</div>-->
 
-    <!-- コメント投稿表示 -->
+    <div class="row">
+     <%= render "public/comments/comment_form", novel: @novel, comment: @comment %>
+    </div>
 
-    <!-- コメント一覧表示 -->
+    <div class="row">
+     <%= render "public/comments/comment_index", novel: @novel %>
+    </div>
+
+</div>

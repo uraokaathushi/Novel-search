@@ -12,11 +12,16 @@ class Public::NovelsController < ApplicationController
   end
 
   def index
-    @novels = Novel.all
+    if current_customer
+     @novels = Novel.all
+    else
+    redirect_to new_customer_session_path
+    end
   end
 
   def show
     @novel = Novel.find(params[:id])
+    @comment = Comment.new
   end
 
   def edit
@@ -30,7 +35,7 @@ class Public::NovelsController < ApplicationController
   def update
    @novel = Novel.find(params[:id])
    if @novel.update(novel_params)
-   redirect_to public_novels_path(@novel)
+   redirect_to public_my_novels_path(@novel)
    else
     render :edit
    end
@@ -42,6 +47,5 @@ class Public::NovelsController < ApplicationController
   def novel_params
     params.require(:novel).permit(:title, :review, :site_name, :genre_name)
   end
-
 
 end
