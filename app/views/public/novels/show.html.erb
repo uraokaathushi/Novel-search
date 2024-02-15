@@ -33,6 +33,12 @@
     <!--<div class="col-md-7"></div>-->
     <!--</div>-->
 
+
+    <div class="row">
+      <%= render "public/novels/static_rate", novel: @novel %>
+    </div>
+
+
     <div class="row">
      <%= render "public/comments/comment_form", novel: @novel, comment: @comment %>
     </div>

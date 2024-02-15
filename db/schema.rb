@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_02_10_125943) do
+ActiveRecord::Schema.define(version: 2024_02_15_145644) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -54,16 +54,19 @@ ActiveRecord::Schema.define(version: 2024_02_10_125943) do
   end
 
   create_table "genres", force: :cascade do |t|
-    t.string "genre_name"
+    t.string "genre_name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["genre_name"], name: "index_genres_on_genre_name", unique: true
   end
 
   create_table "genres_selects", force: :cascade do |t|
-    t.integer "genre_name_id", null: false
     t.integer "novel_id", null: false
+    t.integer "genre_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["genre_id"], name: "index_genres_selects_on_genre_id"
+    t.index ["novel_id"], name: "index_genres_selects_on_novel_id"
   end
 
   create_table "novels", force: :cascade do |t|
@@ -73,6 +76,9 @@ ActiveRecord::Schema.define(version: 2024_02_10_125943) do
     t.text "review"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "star"
   end
 
+  add_foreign_key "genres_selects", "genres"
+  add_foreign_key "genres_selects", "novels"
 end

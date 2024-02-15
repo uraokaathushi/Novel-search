@@ -1,5 +1,4 @@
 <div class="container">
-
   <div class="row">
     <h2>作品投稿</h2>
   </div>
@@ -36,9 +35,38 @@
   </div>
 
   <div class="row">
+      <% if @novel.id.nil? %>
+    <div class="form-group" id="star">
+      <%= f.label :star %>
+      <%= f.hidden_field :star, id: :review_star, class: 'form-control' %>
+      <div id="post_raty"></div>
+    </div>
+    <script>
+      $(document).on('turbolinks:load', function() {
+        let elem = document.querySelector('#post_raty');
+        if (elem == null) return;
+
+        elem.innerHTML = ""
+        let opt = {
+          starOn: "<%= asset_path('star-on.png') %>",
+          starOff: "<%= asset_path('star-off.png') %>",
+          starHalf: "<%= asset_path('star-half.png') %>",
+          scoreName: 'novel[star]',
+        };
+        raty(elem, opt);
+      });
+    </script>
+     <% else %>
+      <div class="form-group">
+      <%= render "static.rate", novel: novel %>
+      </div>
+      <% end %>
+  </div>
+
+  <div class="row">
    <div class="actions">
      <%= f.submit "作品情報を投稿", class: 'btn btn-success btn-lg', style: "width: 80%"  %>
    </div>
   </div>
-<% end %>
+  <% end %>
 </div>
