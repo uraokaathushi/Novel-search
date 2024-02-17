@@ -11,10 +11,11 @@
 
 
      <div class="row mb-5"></div>
-        <!--<div class="row">-->
-    <!-- <div class="col-md-2"><p>ジャンル</p></div>-->
-    <!-- <div class="col-md-7"><!%= @novel.text_field :genre_name, autofocus: true %></div>-->
-    <!--</div>-->
+     
+     <div class="row my-3">
+      <div class="col-md-3">ジャンル</div>
+      <div class="col-md-9"><%= @novel.genres.pluck(:genre_name).join(' / ') %></div>
+    </div>
 
     <div class="row">
       <div class="col-md-2"><p>サイト</p></div>

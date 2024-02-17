@@ -14,7 +14,41 @@
     </div>
   </div>
 
-  <!--<div class="row"></div> ジャンル選択画面-->
+  <div class="row">
+    <div class="col">
+     <p>ジャンル</p>
+    </div>
+  </div>
+  
+  <div class="form-group row">  
+   <%= f.label :genre_ids, 'ジャンル:', class: 'col-md-4' %>
+    <div class="col-md-8 border d-flex flex-row flex-wrap">
+      <%= f.collection_check_boxes :genre_ids, @genres, :id, :genre_name do |b| %>
+      <div class="mx-2 mt-1">
+        <%= b.check_box %>
+        <%= b.label %>
+      </div>
+     <% end %> 
+    </div>
+  </div>
+
+
+  <!--<div class="row">-->
+  <!-- <div class="check_box">-->
+  <!--  <span>ジャンル</span>-->
+  <!--  <%#= f.collection_check_boxes(:genre_ids, Genre.all, :id, :genre_name) do |genre| %>-->
+  <!--   <div>-->
+  <!--     <%#= genre.label do %>-->
+  <!--       <%#= genre.check_box %>-->
+  <!--       <%#= genre.text %>-->
+  <!--     <%# end %>-->
+  <!--   </div>-->
+  <!--  <%# end %>-->
+  <!-- </div>-->
+  <!--</div>-->
+
+
+
 
   <div class="row">
     <div class="col">

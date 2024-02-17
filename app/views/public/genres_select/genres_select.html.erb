@@ -1,0 +1,15 @@
+
+<div class="container">
+  <div class="row">
+   <%= form_tag(public_novels_path, method: :get) do %>
+    <div class="col">
+     <% @genres.each do |genre| %>
+       <div class="checkbox">
+         <%= check_box_tag 'genre_ids[#{genre.id}]', genre.id, false %>
+         <%= label_tag genre.genre_name %>
+       </div>
+     <% end %>
+    </div>
+     <%= submit_tag "検索" %>
+   <% end %>
+  </div>

@@ -32,6 +32,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
      resources :comments, only: [:create, :destroy]
    end
     # resources :favorites, only: [:create, :destroy, :index]
+   get 'genres_select', to: 'genres_select#genres_select', as: 'genres_select'
    get '/my_novels' =>'customers#my_novel', as: 'my_novels'
    get '/customers/information/edit' => 'customers#edit', as: 'edit_customer'
    get '/customers/my_page' => 'customers#show', as: 'customer_my_page'

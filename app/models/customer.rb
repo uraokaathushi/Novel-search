@@ -1,13 +1,17 @@
 class Customer < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+  devise :database_authenticatable,:registerable,
+         :recoverable, :rememberable, :validatable, authentication_keys: [:name] 
   validates :password, length: { maximum: 10 }
 
     has_many :novels
     has_many :favorites
     has_many :comments, dependent: :destroy
+    
+  def self.find_for_database_authentication(warden_conditions)
+    find_by(name: warden_conditions[:name])
+  end
 
 
   def self.guest

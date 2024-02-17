@@ -1,5 +1,5 @@
 class Novel < ApplicationRecord
-
+validates :genres, presence:true
     belongs_to :customer
     has_many :favorites
     has_many :comments, dependent: :destroy

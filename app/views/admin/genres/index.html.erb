@@ -1,0 +1,15 @@
+<div class="align-center">
+  <div class="row m-3"><h5>登録済みジャンル一覧</h5></div>
+  <div class="genre-index">
+    <%= render 'genre_index', genres: @genres %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-11 mx-auto">
+    <h5 class="m-3">追加登録</h5>
+    <div class="genre-form">
+      <%= render 'genre_form', genre: @genre %>
+    </div>
+  </div>
+</div>

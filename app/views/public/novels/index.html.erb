@@ -2,6 +2,22 @@
 
   <h2>作品一覧</h2>
 <% if current_customer %>
+ <div class="col-md-5 my-3 p-3 border shadow-sm">
+  <div class="genre-search">
+   <%= form_with url: search_path, local: true, method: :get do |f| %>
+   <div class="row">
+     <%= f.collection_check_boxes :genre_ids, Genre.all, :id, :genre_name do |b| %>
+      <%= b.check_box %>
+      <%= b.label %>
+     <% end %>
+      <%= button_tag type: "submit", class: "border rounded-pill shadow-sm search-btn" do %>
+       <i class="fas fa-search">検索</i> 
+      <% end %>
+   </div>
+   <% end %>
+  </div>
+ </div>
+    
  <div class='row'>
   <th>
   <% @novels.each do |novel| %>
