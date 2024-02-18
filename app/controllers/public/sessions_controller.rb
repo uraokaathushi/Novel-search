@@ -37,9 +37,10 @@ class Public::SessionsController < Devise::SessionsController
 
   # protected
   def reject_customer
-    @customer = Customer.find_by(email: params[:customer][:name])
+    @customer = Customer.find_by(name: params[:customer][:name])
       if @customer
-        if @customer.valid_password?(params[:customer][:password][:name]) && (@customer.is_active == false)
+        #if @customer.valid_password?(params[:customer][:password][:name]) && (@customer.is_active == false)
+        if @customer.is_active == false
           flash[:notice] = "退会済みです。再度ご登録をしてご利用ください。"
           redirect_to new_customer_registration_path
         else

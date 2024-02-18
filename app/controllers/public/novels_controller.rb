@@ -7,12 +7,8 @@ class Public::NovelsController < ApplicationController
 
   def create
     @novel = Novel.new(novel_params.merge(genre_ids: params[:novel][:genre_ids]))
-    # @novel = Novel.new(novel_params.merge(genre_id: params[:novel][:genre_id]))
-    # @genre_names = params[:novel][:genre_id].split(',')
-    # @genre_list = @genre_names.map { |genre_name| Genre.find_or_create_by(genre_name: genre_name) }
     @novel.customer_id = current_customer.id
     if @novel.save
-      # @novel.genres = @genre_list
        redirect_to  public_customer_my_page_path
     else
      flash.now[:alert] = '投稿に失敗しました'
@@ -22,22 +18,20 @@ class Public::NovelsController < ApplicationController
   end
 
   def index
-  
- 
-     if params[:genre_ids]
-        if params[:genre_ids].present?
+   if params[:genre_ids]
+      if params[:genre_ids].present?
           @genres = Genre.where(id: params[:genre_ids].compact_blank)
           @novels = Kaminari.paginate_array( Novel.joins(:genres_selects).where(genres_selects: {genre_id: params[:genre_ids].compact_blank }).order(created_at: :desc).uniq).page(params[:page]).per(10)
-        else
+      else
           @novels = Novel.all.order(created_at: :desc).page(params[:page]).per(10)
       end
-     elsif params[:method]
+   elsif params[:method]
           @content = params[:a]
           @method = params[:method]
           @novels = Novel.search_for(@content, @method).page(params[:page]).per(10)
-     else
+   else
        @novels = Novel.all.order(created_at: :desc).page(params[:page]).per(10)
-     end
+   end
   end
 
   def show

@@ -1,0 +1,55 @@
+<div class='container'>
+ <div class='row'>
+  <div class='col-md-12'>
+
+  <div class='row'>
+   <div class='col-5 text-center'>
+    <h3 class="table-active"><%= @customer.name %>さんの会員情報編集</h3>
+    </div>
+  <div class='col-7'></div>
+  </div>
+
+  <div class="mb-4"></div>
+
+   <div class='row'>
+      <div class='col-3'><h4>会員ID</h4></div>
+      <div class='col-3'><h4><%= @customer.id %></h4></div>
+      <div class='col-6'></h4></div>
+  </div>
+
+  <%= form_with model: @customer, url: admin_customer_path do |customer| %>
+   <%= render "public/shared/error_messages", resource: @customer %>
+  <div class='row'>
+    <div class='col-3'><h4><%= customer.label :name, "名前" %></h4></div>
+    <div class='col-3'><h4><%= customer.text_field :name, style: "width: 90%" %></h4></div>
+    <div class='col-6'><h4></h4></div>
+  </div>
+
+  <div class='row'>
+    <div class='col-3'><h4><%= customer.label :email, "メールアドレス" %></h4></div>
+    <div class='col-3'><h4><%= customer.email_field :email, autofocus: true, autocomplete: "email", style: "width: 90%" %></h4></div>
+    <div class='col-6'><h4></h4></div>
+  </div>
+
+  <div class='row'>
+   <div class='col-3'><h4>会員ステータス</h4></div>
+   <div class='col-1'><h4><%= customer.radio_button :is_active, "true" %>有効</h4></div>
+   <div class='col-1'><h4><%= customer.radio_button :is_active, "false" %>退会</h4></div>
+   <div class='col-7'></div>
+  </div>
+
+ <div class="mb-5"></div>
+
+  <div class='row'>
+  <div class='col-3'></div>
+  <div class="col-md-3">
+   <div class="actions">
+    <h4><%= customer.submit "変更を保存", class: 'btn btn-success btn-lg', style: "width: 80%" %></h4>
+   </div>
+   <div class='col-6'></div>
+  </div>
+  </div>
+  <% end %>
+  </div>
+ </div>
+</div>
