@@ -1,5 +1,5 @@
 class Public::NovelsController < ApplicationController
-
+   before_action :authenticate_customer!
   def new
     @novel = Novel.new
     @genres = Genre.all
@@ -22,21 +22,22 @@ class Public::NovelsController < ApplicationController
   end
 
   def index
-    if current_customer
-     @novels = Novel.all
-    else
-    redirect_to new_customer_session_path
-    end
-     if params[:search].present?
-      novels = Novel.novels_search(params[:search])
-     elsif params[:genre_id].present?
-      @genre = Genre.find(params[:genre_id])
-      novels = @genre.novels.order(created_at: :desc)
+  
+ 
+     if params[:genre_ids]
+        if params[:genre_ids].present?
+          @genres = Genre.where(id: params[:genre_ids].compact_blank)
+          @novels = Kaminari.paginate_array( Novel.joins(:genres_selects).where(genres_selects: {genre_id: params[:genre_ids].compact_blank }).order(created_at: :desc).uniq).page(params[:page]).per(10)
+        else
+          @novels = Novel.all.order(created_at: :desc).page(params[:page]).per(10)
+      end
+     elsif params[:method]
+          @content = params[:a]
+          @method = params[:method]
+          @novels = Novel.search_for(@content, @method).page(params[:page]).per(10)
      else
-      novels = Novel.all.order(created_at: :desc)
+       @novels = Novel.all.order(created_at: :desc).page(params[:page]).per(10)
      end
-      @genre_lists = Genre.all
-      @novels = Kaminari.paginate_array(novels).page(params[:page]).per(10)
   end
 
   def show

@@ -2,22 +2,32 @@
 
   <h2>作品一覧</h2>
 <% if current_customer %>
- <div class="col-md-5 my-3 p-3 border shadow-sm">
-  <div class="genre-search">
-   <%= form_with url: search_path, local: true, method: :get do |f| %>
-   <div class="row">
-     <%= f.collection_check_boxes :genre_ids, Genre.all, :id, :genre_name do |b| %>
-      <%= b.check_box %>
-      <%= b.label %>
-     <% end %>
-      <%= button_tag type: "submit", class: "border rounded-pill shadow-sm search-btn" do %>
-       <i class="fas fa-search">検索</i> 
+  <div class="col-md-10 my-3 p-3 border shadow-sm">
+   <div class="search">
+    <div class="row">
+     <div class="col-md-6">
+      <%= form_with url: public_novels_path(type: "genre"), method: :get, local: true do |f| %>
+       <%= f.collection_check_boxes :genre_ids, Genre.all, :id, :genre_name do |b| %>
+         <%= b.check_box %>
+         <%= b.label %>
+       <% end %>
+       <%= button_tag type: "submit", class: "border rounded-pill shadow-sm search-btn" do %>
+          <i class="fas fa-search">検索</i>
+       <% end %>
       <% end %>
+     </div>
+
+     <%= form_with url: public_novels_path(), method: :get, local: true do |f| %>
+      <div class="col-md-6">
+        <%= f.text_field :a %>
+        <%= f.select :method, options_for_select({"完全一致" => "perfect", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partial"}) %>
+        <%= f.submit "検索" %>
+      </div>
+     <% end %>
+    </div>
+    </div>
    </div>
-   <% end %>
-  </div>
- </div>
-    
+
  <div class='row'>
   <th>
   <% @novels.each do |novel| %>
@@ -28,5 +38,6 @@
  <% else %>
     ログインしてください
  <% end %>
+
 
 </div>

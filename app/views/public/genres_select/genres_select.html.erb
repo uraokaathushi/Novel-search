@@ -5,7 +5,7 @@
     <div class="col">
      <% @genres.each do |genre| %>
        <div class="checkbox">
-         <%= check_box_tag 'genre_ids[#{genre.id}]', genre.id, false %>
+         <%= check_box_tag 'genre_ids', genre.id, false %>
          <%= label_tag genre.genre_name %>
        </div>
      <% end %>
