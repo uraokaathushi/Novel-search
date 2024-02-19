@@ -37,7 +37,6 @@ class Public::NovelsController < ApplicationController
   def show
     @novel = Novel.find(params[:id])
     @comment = Comment.new
-    @genre = Genre.find(params[:id])
   end
 
   def edit

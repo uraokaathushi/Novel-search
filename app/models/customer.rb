@@ -12,7 +12,10 @@ class Customer < ApplicationRecord
   def self.find_for_database_authentication(warden_conditions)
     find_by(name: warden_conditions[:name])
   end
-
+  
+  def active_for_authentication?
+    super && is_active # ユーザーがログインするためには、is_activeがtrueを返すことも必要
+  end
 
   def self.guest
     find_or_create_by!(email: "guest@example.com") do |customer|

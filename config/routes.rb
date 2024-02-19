@@ -17,7 +17,11 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
  get  '/admin', to: 'admin/homes#top', as: "/admin"
  namespace :admin do
-    resources :novels, only: [:index, :show, :edit, :update, :destroy]
+    resources :novels, only: [:index, :show, :edit, :update, :destroy] do
+     member do
+      delete 'destroy_review'
+      end
+    end
     resources :genres, only: [:create, :index, :edit, :update, :destroy]
     resources :customers, only: [:index, :show, :edit, :update,]
    end

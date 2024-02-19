@@ -65,12 +65,12 @@
      　</div>
     </div>
 
-    <div class='row'>
-    <%= link_to '削除', public_novel_path(novel), method: :delete, data: { confirm: '本当に削除しますか？' } %>
-    </div>
-
-
+  <div class='row'>
+    <%= link_to '削除', public_novel_path(@novel), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+  </div>
 
   <% end %>
+
+
 
 </div>

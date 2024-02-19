@@ -1,9 +1,9 @@
 class Public::CustomersController < ApplicationController
- before_action :authenticate_customer!#, :not_guest
+ before_action :authenticate_customer!, :not_guest
 
   def show
     @customer = current_customer
-    @novels = current_customer.novels #Novel.where(:user_id=>current_customer.id)
+    @novels = current_customer.novels 
   end
 
   def edit
