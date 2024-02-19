@@ -1,5 +1,5 @@
 class Public::CustomersController < ApplicationController
- before_action :authenticate_customer!, :not_guest
+ before_action :authenticate_customer!#, :not_guest
 
   def show
     @customer = current_customer
@@ -36,7 +36,7 @@ class Public::CustomersController < ApplicationController
   end
 
    private
-   
+
   def not_guest
      if current_customer && current_customer.email == 'guest@example.com'
        redirect_to root_path

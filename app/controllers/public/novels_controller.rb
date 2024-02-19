@@ -57,6 +57,18 @@ class Public::NovelsController < ApplicationController
    end
   end
 
+  def destroy
+   @novel = Novel.find(params[:id])
+    if @novel.customer == current_customer # ログインしている顧客がその小説の作者であるかを確認
+      @novel.destroy
+      flash[:notice] = '小説が削除されました'
+      redirect_to request.referrer
+    else
+      flash[:alert] = 'この小説を削除できませんでした'
+      redirect_to request.referrer
+    end
+  end
+
 
   private
 
