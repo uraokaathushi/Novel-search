@@ -29,6 +29,12 @@ class Public::NovelsController < ApplicationController
           @content = params[:a]
           @method = params[:method]
           @novels = Novel.search_for(@content, @method).page(params[:page]).per(10)
+   elsif params[:latest]
+          @novels = Novel.latest
+   elsif params[:old]
+          @novels = Novel.old
+   elsif params[:star_count]
+          @novels = Novel.star_count
    else
        @novels = Novel.all.order(created_at: :desc).page(params[:page]).per(10)
    end

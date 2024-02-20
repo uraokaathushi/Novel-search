@@ -1,10 +1,16 @@
 class Novel < ApplicationRecord
 validates :genres, presence:true
+validates :title,presence:true
+
     belongs_to :customer
     has_many :favorites
     has_many :comments, dependent: :destroy
     has_many :genres_selects, dependent: :destroy
     has_many :genres, through: :genres_selects
+    
+    
+    
+    
 
   #検索メソッド、タイトルと内容をあいまい検索する
  def self.genres_serach(search)
@@ -39,5 +45,9 @@ validates :genres, presence:true
       Novel.where('title LIKE ?', '%' + title + '%')
     end
  end
+ 
+ scope :latest, -> {order(created_at: :desc)}
+ scope :old, -> {order(created_at: :asc)}
+ scope :star_count, -> {order(star: :desc)}
 
 end

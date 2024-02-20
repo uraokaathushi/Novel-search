@@ -1,6 +1,6 @@
 
     <div class="row">
-      <div class="col-md-7">
+      <div class="col-md-7 text-center">
         <a href="<%= public_novel_path(novel)%>">
         <%= novel.title %></a></div>
       <div class="col-md-5">
@@ -33,11 +33,9 @@
      <%= render "public/novels/static_rate", novel: novel %>
     </div>
 
+    <div class="row">
+     <%= l(novel.created_at) %>
+    </div>
+   <div class="row mb-5"></div>
 
-
-    <!--<div class="row">-->
-    <!-- <div class="col-md-2"><p>お気に入り</p></div>-->
-    <!-- <div class="col-md-3"><i class="fa-light fa-star" style="color: yello;"></i><!%= @f.favorites.count %> </div>-->
-    <!--<div class="col-md-7"></div>-->
-    <!--</div>-->
 

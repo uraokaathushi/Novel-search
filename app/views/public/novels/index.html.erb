@@ -26,6 +26,13 @@
      <% end %>
     </div>
     </div>
+    <div class="row">
+     <div class="col-md-6">
+      <%= link_to '新しい順', public_novels_path(latest: "true") %>
+      |<%= link_to '古い順', public_novels_path(old: "true") %>
+      |<%= link_to '評価の高い順', public_novels_path(star_count: "true") %>
+     </div>
+    </div>
    </div>
 
  <div class='row'>
