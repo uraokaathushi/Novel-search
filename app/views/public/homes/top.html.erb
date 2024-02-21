@@ -1,10 +1,21 @@
+
+ <% if flash[:notice].present? %>
+  <div class="alert alert-success" role="alert">
+    <%= flash[:notice] %>
+  </div>
+ <% end %>
+
  <div class="container">
-        <div class="row">
-          <div class="col-md-4"></div>
-          <div class="col-md-4"><%= link_to "ゲストログイン（閲覧用）", customer_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
-          </div>
-          <div class="col-md-4"></div>
-        </div>
+  <div class="row mb-2"></div>
+   <div class='row text-center'><h2>作品一覧</h2></div>
+   <div class="row mb-5"></div>
+    <div class='row'>
+      <th>
+        <% @novels.each do |novel| %>
+           <%= render 'public/novels/novel', novel: novel %>
+        <% end %>
+      </th>
+    </div>
 
 
  </div>

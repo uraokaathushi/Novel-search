@@ -2,3 +2,8 @@ ja:
   time:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
+  devise:
+    sessions:
+      customer:
+        signed_out: "ログアウトしました"
+      signed_out: "ログアウトしました"

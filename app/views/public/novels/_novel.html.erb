@@ -1,41 +1,43 @@
 
-    <div class="row">
-      <div class="col-md-7 text-center">
-        <a href="<%= public_novel_path(novel)%>">
+ <div class="row">
+    <div class="col-md-12">
+     <div class="row">
+      <div class="col-md-9 text-center">
+       <a href="<%= public_novel_path(novel)%>">
         <%= novel.title %></a></div>
-      <div class="col-md-5">
-     <% if novel.customer_id == current_customer.id %>
-     <%= link_to edit_public_novel_path(novel), class: "btn btn-success btn-lg" do %>
-       <i>編集する</i>
+      <div class="col-md-3">
+       <% if current_customer && novel.customer_id == current_customer.id %>
+        <%= link_to edit_public_novel_path(novel), class: "btn btn-success btn-lg" do %>
+         <i>編集</i>
        <% end %>
-      <% end %>
+       <% elsif current_customer.nil? %>
+        <i></i>
+       <% end %>
       </div>
-    </div>
+     </div>
 
      <div class="row my-3">
-      <div class="col-md-3">ジャンル</div>
-      <div class="col-md-9"><%= novel.genres.pluck(:genre_name).join(' / ') %></div>
-    </div>
+      <div class="col-md-4 text-center">ジャンル</div>
+      <div class="col-md-8"><%= novel.genres.pluck(:genre_name).join(' / ') %></div>
+     </div>
 
+     <div class="row">
+      <div class="col-md-4 text-center"><p>サイト名</p></div>
+      <div class="col-md-8"><%= novel.site_name %></div>
+     </div>
 
-    <div class="row">
-      <div class="col-md-2"><p>サイト</p></div>
-      <div class="col-md-7"><%= novel.site_name %></div>
-      <div class="col-md-3"></div>
-    </div>
+     <div class="row">
+      <div class="col-md-4 text-center"><p>レビュー</p></div>
+      <div class="col-md-8"><%= novel.review.present? ? novel.review : "レビューはありません"  %></div>
+     </div>
 
-    <div class="row">
-      <div class="col-md-2"><p>レビュー</p></div>
-      <div class="col-md-10"><%= novel.review.present? ? novel.review : "レビューはありません"  %></div>
+     <div class="row">
+      <div class="col-md-4 text-center"><%= render "public/novels/static_rate", novel: novel %></div>
+      <div class="col-md-2"></div>
+      <div class="col-md-6 text-center"><%= l(novel.created_at) %></div>
+     </div>
     </div>
-
-    <div class="row">
-     <%= render "public/novels/static_rate", novel: novel %>
-    </div>
-
-    <div class="row">
-     <%= l(novel.created_at) %>
-    </div>
-   <div class="row mb-5"></div>
+ </div>
+ <div class="row mb-5"></div>
 
 

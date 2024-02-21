@@ -12,12 +12,13 @@ class Public::SessionsController < Devise::SessionsController
   def guest_login
     customer = Customer.guest
     sign_in(customer)
-    redirect_to root_path, notice: "ゲストでログインしました。"
+    flash[:notice] = "ゲストでログインしました。"
+    redirect_to public_novels_path
   end
 
   def destroy_guest
-    if current_user.guest?
-      current_user.destroy
+    if current_customer.guest?
+      current_customer.destroy
     end
     super
   end
@@ -29,6 +30,10 @@ class Public::SessionsController < Devise::SessionsController
   # end
   def after_sign_in_path_for(resource)
    public_customer_my_page_path
+  end
+
+  def after_sign_out_path_for(resource_or_scope)
+    root_path
   end
   # DELETE /resource/sign_out
   # def destroy

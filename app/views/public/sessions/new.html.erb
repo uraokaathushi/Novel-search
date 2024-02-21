@@ -1,37 +1,59 @@
-<div class="container">
 
-<h2>会員ログイン画面</h2>
-
-<%= form_with model: @customer, url: customer_session_path, local: true do |f| %>
-
-  <div class="field">
-    <%= f.label :name, "名前" %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password, "パスワード" %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-  <div class="row">
-   <div class="col-md-4"></div>
-   <div class="col-md-4"><%= link_to "ゲストログイン（閲覧用）", customer_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
+<div class='container'>
+ <div class='row'>
+  <div class='col-md-1'></div>
+   <div class='col-3 text-center'>
+    <h2>会員ログイン画面</h2>
    </div>
-   <div class="col-md-4"></div>
+   <div class='col-md-8'></div>
+ </div>
+
+  <div class="mb-5"></div>
+
+  <%= form_with model: @customer, url: customer_session_path, local: true do |f| %>
+   <%= render "public/shared/error_messages", resource: @customer %>
+
+
+   <div class='row'>
+     <div class='col-2'></div>
+     <div class='col-2'><h5><%= f.label :name, "名前" %></h5></div>
+     <div class='col-6'><%= f.text_field :name, autofocus: true, autocomplete: "name", style: "width: 80%" %></div>
+     <div class='col-2'></div>
+   </div>
+
+    <div class="mb-3"></div>
+
+   <div class='row'>
+     <div class='col-2'></div>
+     <div class='col-2'><h5><%= f.label :password, "パスワード" %></h5></div>
+     <div class='col-6'><%= f.password_field :password, autocomplete: "current-password", style: "width: 80%" %></div>
+     <div class='col-2'></div>
+   </div>
+
+  <div class="mb-5"></div>
+
+   <div class='row'>
+    <div class='col-4'></div>
+    <div class="col-3">
+ 　   <div class="actions">
+      <%= f.submit "ログイン", class: 'btn btn-success btn-lg', style: "width: 80%" %>
+     </div>
+    </div>
+   </div>
+  <% end %>
+
+  <div class="mb-5"></div>
+
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-4"><h4>会員登録がまだの方</div>
+    <div class="col-md-6"></div>
   </div>
 
   <div class="row">
-    <div class="col-md-3">会員登録がまだの方</div>
-    <div class="col-md-9"></div>
-  </div>
-
-  <div class="row">
+    <div class="col-md-2"></div>
     <div class="col-md-5">
-    <%= render "public/shared/links" %>から新規登録してください</div>
+    <h4><%= render "public/shared/links" %>から新規登録してください</h4></div>
     <div class="col-md-5"></div>
+  </div>
+</div>

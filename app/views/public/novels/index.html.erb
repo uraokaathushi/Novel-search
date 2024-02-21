@@ -1,7 +1,14 @@
-<div class="container">
+<% if flash[:notice].present? %>
+  <div class="alert alert-success" role="alert">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
 
-  <h2>作品一覧</h2>
-<% if current_customer %>
+<div class="container">
+ <div class="row mb-3"></div>
+  <div class='row text-center'><h2>作品一覧</h2></div>
+  <div class="row mb-3"></div>
+  <% if current_customer %>
   <div class="col-md-10 my-3 p-3 border shadow-sm">
    <div class="search">
     <div class="row">
