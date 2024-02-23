@@ -1,12 +1,13 @@
-<div class='container px-5 px-sm-0'>
-
+<div class='container top'>
+ <div class='row'></div>
+ <div class="mb-5"></div>
  <div class='row'>
   <div class='col-md-12'>
    <h2 class='text-center'>本当に退会しますか？</h2>
   </div>
  </div>
 
- <div class="mb-4"></div>
+ <div class="mb-5"></div>
 
   <div class='row'>
    <div class='col-md-12'>
@@ -20,25 +21,25 @@
  　 </div>
   </div>
 
- <div class="mb-4"></div>
+ <div class="mb-5"></div>
 
   <div class='row'>
-   <div class='col-md-12'>
-     <div class="d-flex justify-content-center align-items-center">
-      <% if current_customer == @customer %>
-
-         <div class='col-6 text-right'>
-         <%= link_to public_customer_my_page_path, class: "btn btn-primary btn-lg" do %>
-          <i>退会しない</i>
-         <% end %>
-        </div>
-
-        <div class='col-6'>
-         <%= link_to public_withdraw_customer_path, method: :patch, class: "btn btn-danger btn-lg" do %>
-          <i>退会する</i>
-         <% end %>
-        </div>
+   <div class='col-md-3'></div>
+    <% if current_customer == @customer %>
+     <div class='col-3 text-center'>
+      <%= link_to public_customer_my_page_path, class: "btn btn-primary btn-lg" do %>
+       <i>退会しない</i>
       <% end %>
-    </div>
-    </div>
+     </div>
+   <div class='col-md-1'></div>
+      <div class='col-3'>
+       <%= link_to public_withdraw_customer_path, method: :patch, class: "btn btn-danger btn-lg" do %>
+        <i>退会する</i>
+       <% end %>
+      </div>
+    <% end %>
+   <div class='col-md-2'></div>
   </div>
+ <div class="mb-5"></div>
+ <div class='row'></div>
+</div>

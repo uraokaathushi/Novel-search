@@ -1,82 +1,100 @@
-<div class="container">
-  <div class="row">
-    <h2>作品投稿</h2>
-  </div>
-
-  <%= form_with model: @novel, url: public_novels_path do |f| %>
+<div class="container top">
+ <div class='row'></div>
+ <div class="mb-3"></div>
 
   <div class="row">
-    <div class="col">
-    <p>タイトル</p>
-    </div>
-    <div class="col">
-      <%= f.text_field :title,autofocus: true %>
-    </div>
+   <div class='col-md-3'></div>
+   <div class='col-5 text-center'>
+    <h3 class="table-active">作品投稿画面</h2>
+   </div>
+   <div class='col-md-4'></div>
   </div>
 
+  <div class="mb-4"></div>
+
+<%= form_with model: @novel, url: public_novels_path do |f| %>
+
   <div class="row">
-    <div class="col">
-     <p>ジャンル</p>
+    <div class='col-md-1'></div>
+    <div class='col-md-3 text-center'>
+     <h4>タイトル</h4>
     </div>
+    <div class='col-md-7'>
+      <%= f.text_field :title, autofocus: true, class: "form-control"  %>
+    </div>
+    <div class='col-md-1'></div>
   </div>
-  
-  <div class="form-group row">  
-   <%= f.label :genre_ids, 'ジャンル:', class: 'col-md-4' %>
-    <div class="col-md-8 border d-flex flex-row flex-wrap">
+
+  <div class="mb-4"></div>
+
+  <div class="form-group row">
+   <div class="row">
+    <div class='col-md-1'></div>
+    <div class='col-md-3 text-center'>
+     <h4>ジャンル</h4>
+    </div>
+   </div>
+   <div class="row">
+    <div class="overflow-x-auto">
+     <div class="col-md-12 border d-flex flex-row flex-wrap">
       <%= f.collection_check_boxes :genre_ids, @genres, :id, :genre_name do |b| %>
       <div class="mx-2 mt-1">
-        <%= b.check_box %>
-        <%= b.label %>
+       <div style="display: inline-block;">
+        <%= b.check_box class: "custom-control-input" %>
+       </div>
+       <div style="display: inline-block;">
+        <h6><%= b.label class: "custom-control-label" %></h6>
+       </div>
       </div>
-     <% end %> 
+     <% end %>
+     </div>
     </div>
+   </div>
   </div>
 
-
-  <!--<div class="row">-->
-  <!-- <div class="check_box">-->
-  <!--  <span>ジャンル</span>-->
-  <!--  <%#= f.collection_check_boxes(:genre_ids, Genre.all, :id, :genre_name) do |genre| %>-->
-  <!--   <div>-->
-  <!--     <%#= genre.label do %>-->
-  <!--       <%#= genre.check_box %>-->
-  <!--       <%#= genre.text %>-->
-  <!--     <%# end %>-->
-  <!--   </div>-->
-  <!--  <%# end %>-->
-  <!-- </div>-->
-  <!--</div>-->
-
-
-
+  <div class="mb-4"></div>
 
   <div class="row">
-    <div class="col">
-    <p>掲載サイト</p>
+    <div class='col-md-1'></div>
+    <div class='col-md-3 text-center'>
+     <h4>掲載サイト</h4>
     </div>
-    <div class="col">
-      <%= f.text_field :site_name,autofocus: true %>
+    <div class='col-md-7'>
+      <%= f.text_field :site_name, autofocus: true, class: "form-control" %>
     </div>
+    <div class='col-md-1'></div>
   </div>
 
-  <div class="row">
-    <div class="col">
-    <p>レビュー</p>
-    </div>
-    <div class="col">
-      <%= f.text_area :review,autofocus: true %>
-    </div>
-  </div>
+  <div class="mb-4"></div>
 
   <div class="row">
+    <div class='col-md-1'></div>
+    <div class='col-md-3 text-center'>
+     <h4>レビュー</h4>
+    </div>
+    <div class='col-md-7'>
+      <%= f.text_area :review,autofocus: true, class: "form-control" %>
+    </div>
+    <div class='col-md-1'></div>
+  </div>
+
+  <div class="mb-4"></div>
+
+  <div class="row">
+   <div class='col-md-2'></div>
       <% if @novel.id.nil? %>
+   <div class='col-md-3'>
     <div class="form-group" id="star">
-      <%= f.label :star %>
-      <%= f.hidden_field :star, id: :review_star, class: 'form-control' %>
-      <div id="post_raty"></div>
+        <h4><%= f.label :star, "評価" %></h4>
     </div>
-    <script>
-      $(document).on('turbolinks:load', function() {
+   </div>
+   <div class='col-md-4'>
+      <div style="display: inline-block; vertical-align: middle;">
+        <%= f.hidden_field :star, id: :review_star, class: 'form-control' %>
+      <div id="post_raty"></div>
+      </div>
+      <script>
+       $(document).on('turbolinks:load', function() {
         let elem = document.querySelector('#post_raty');
         if (elem == null) return;
 
@@ -88,19 +106,30 @@
           scoreName: 'novel[star]',
         };
         raty(elem, opt);
-      });
+       });
     </script>
      <% else %>
       <div class="form-group">
       <%= render "static.rate", novel: novel %>
       </div>
       <% end %>
+    </div>
   </div>
 
-  <div class="row">
-   <div class="actions">
-     <%= f.submit "作品情報を投稿", class: 'btn btn-success btn-lg', style: "width: 80%"  %>
+  <div class="mb-4"></div>
+
+   <div class='row'>
+    <div class='col-md-4'></div>
+    <div class='col-md-4'>
+     <div class="actions">
+      <%= f.submit "作品情報を投稿", class: 'btn btn-success btn-lg', style: "width: 80%"  %>
+     </div>
+    </div>
+    <div class='col-md-4'></div>
    </div>
-  </div>
-  <% end %>
+<% end %>
+
+ <div class="mb-5"></div>
+ <div class='row'></div>
+
 </div>

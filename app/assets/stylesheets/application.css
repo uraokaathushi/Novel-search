@@ -17,8 +17,27 @@
 
 @import "font-awesome-sprockets";
 @import "font-awesome";
-body {
-  background-image: image-url("hoge.jpg");
-}
 
  */
+
+
+body {
+  background-image: url("/assets/main.jpg");
+}
+    /* 全ての画面のスタイル */
+
+.top {
+    background-image: url('/assets/top1.jpg');
+    background-size: cover;
+    /* ログイン、新規登録以外画面のスタイル */
+}
+
+.sign {
+    background-image: url('/assets/sign.jpg');
+    background-size: cover;
+    /* ログイン、新規登録画面のスタイル */
+}
+
+.overflow-x-auto {
+  overflow-x: auto;
+}
