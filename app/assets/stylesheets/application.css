@@ -13,12 +13,12 @@
  *= require_tree .
  *= require_self
  *= require bootstrap
-
-
-@import "font-awesome-sprockets";
-@import "font-awesome";
-
+ *= require @fortawesome/fontawesome-free/css/fontawesome
+ *= require @fortawesome/fontawesome-free/css/solid
+ *= require @fortawesome/fontawesome-free/css/regular
+ *= require @fortawesome/fontawesome-free/css/brands
  */
+
 
 
 body {
@@ -40,4 +40,14 @@ body {
 
 .overflow-x-auto {
   overflow-x: auto;
+}
+
+.custom-link {
+  text-decoration: none;
+  color: #00008b;
+}
+
+.divider {
+  border-bottom: 1px solid #ccc; /* 区切り線のスタイル */
+  margin-bottom: 20px; /* 各小説表示の下の間隔 */
 }

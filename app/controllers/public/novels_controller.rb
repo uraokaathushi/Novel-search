@@ -47,6 +47,7 @@ class Public::NovelsController < ApplicationController
 
   def edit
     @novel = Novel.find_by(id: params[:id])
+    @genres = Genre.all
     if @novel.nil?
       @novels = Novel.all
       redirect_to public_novels_path
@@ -78,6 +79,6 @@ class Public::NovelsController < ApplicationController
   private
 
   def novel_params
-    params.require(:novel).permit(:title, :review, :site_name, :genre_name, :star, :genres_id, genres_ids:[])
+    params.require(:novel).permit(:title, :review, :site_name, :genre_name, :star, :genre_id, genre_ids:[])
   end
 end

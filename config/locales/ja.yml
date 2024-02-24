@@ -5,5 +5,8 @@ ja:
   devise:
     sessions:
       customer:
+        signed_in: "ログインしました"
         signed_out: "ログアウトしました"
-      signed_out: "ログアウトしました"
+      admin:
+        signed_in: "管理者としてログインしました"
+        signed_out: "管理者としてログアウトしました"

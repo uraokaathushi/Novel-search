@@ -7,10 +7,10 @@ validates :title,presence:true
     has_many :comments, dependent: :destroy
     has_many :genres_selects, dependent: :destroy
     has_many :genres, through: :genres_selects
-    
-    
-    
-    
+
+
+
+
 
   #検索メソッド、タイトルと内容をあいまい検索する
  def self.genres_serach(search)
@@ -34,18 +34,18 @@ validates :title,presence:true
    end
  end
 
- def self.search_for(title, method)
+ def self.search_for(content, method)
     if method == 'perfect'
-      Novel.where(title: title)
+      Novel.where('title = ? OR review = ?', content, content)
     elsif method == 'forward'
-      Novel.where('title LIKE ?', title + '%')
+      Novel.where('title LIKE ? OR review LIKE ?', content + '%', content + '%')
     elsif method == 'backward'
-      Novel.where('title LIKE ?', '%' + title)
+      Novel.where('title LIKE ? OR review LIKE ?', '%' + content, '%' + content)
     else
-      Novel.where('title LIKE ?', '%' + title + '%')
+      Novel.where('title LIKE ? OR review LIKE ?', '%' + content + '%', '%' + content + '%')
     end
  end
- 
+
  scope :latest, -> {order(created_at: :desc)}
  scope :old, -> {order(created_at: :asc)}
  scope :star_count, -> {order(star: :desc)}

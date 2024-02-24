@@ -15,7 +15,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
 
- get  '/admin', to: 'admin/homes#top', as: "/admin"
+ get  '/admin', to: 'admin/homes#top', as: "admin"
  namespace :admin do
     resources :novels, only: [:index, :show, :edit, :update, :destroy] do
      member do

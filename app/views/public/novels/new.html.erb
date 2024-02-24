@@ -15,12 +15,12 @@
 <%= form_with model: @novel, url: public_novels_path do |f| %>
 
   <div class="row">
-    <div class='col-md-1'></div>
-    <div class='col-md-3 text-center'>
+    <div class='col-md-2'></div>
+    <div class='col-md-2 text-center'>
      <h4>タイトル</h4>
     </div>
     <div class='col-md-7'>
-      <%= f.text_field :title, autofocus: true, class: "form-control"  %>
+      <%= f.text_field :title, autofocus: true, class: "form-control" %>
     </div>
     <div class='col-md-1'></div>
   </div>
@@ -29,8 +29,8 @@
 
   <div class="form-group row">
    <div class="row">
-    <div class='col-md-1'></div>
-    <div class='col-md-3 text-center'>
+    <div class='col-md-2'></div>
+    <div class='col-md-2 text-center'>
      <h4>ジャンル</h4>
     </div>
    </div>
@@ -55,8 +55,8 @@
   <div class="mb-4"></div>
 
   <div class="row">
-    <div class='col-md-1'></div>
-    <div class='col-md-3 text-center'>
+    <div class='col-md-2'></div>
+    <div class='col-md-2 text-center'>
      <h4>掲載サイト</h4>
     </div>
     <div class='col-md-7'>
@@ -68,8 +68,8 @@
   <div class="mb-4"></div>
 
   <div class="row">
-    <div class='col-md-1'></div>
-    <div class='col-md-3 text-center'>
+    <div class='col-md-2'></div>
+    <div class='col-md-2 text-center'>
      <h4>レビュー</h4>
     </div>
     <div class='col-md-7'>
@@ -83,12 +83,12 @@
   <div class="row">
    <div class='col-md-2'></div>
       <% if @novel.id.nil? %>
-   <div class='col-md-3'>
+   <div class='col-md-2 text-center'>
     <div class="form-group" id="star">
-        <h4><%= f.label :star, "評価" %></h4>
+      <h4><%= f.label :star, "評価" %></h4>
     </div>
    </div>
-   <div class='col-md-4'>
+   <div class='col-md-4 text-center'>
       <div style="display: inline-block; vertical-align: middle;">
         <%= f.hidden_field :star, id: :review_star, class: 'form-control' %>
       <div id="post_raty"></div>

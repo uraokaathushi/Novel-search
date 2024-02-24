@@ -6,47 +6,71 @@
 
 <div class="container top">
  <div class="row mb-3"></div>
-  <div class='row text-center'><h2>作品一覧</h2></div>
+  <div class='row text-center'>
+   <h2>作品一覧</h2>
+  </div>
+  
   <% if current_customer %>
-  <div class="col-md-10 my-3 p-3 border shadow-sm">
+
+  <div class="col-md-12 my-3 p-3 border shadow-sm">
    <div class="search">
     <div class="row">
-     <div class="col-md-6">
-      <%= form_with url: public_novels_path(type: "genre"), method: :get, local: true do |f| %>
-       <%= f.collection_check_boxes :genre_ids, Genre.all, :id, :genre_name do |b| %>
+     <div class="col-md-12">
+      <div class="overflow-x-auto">
+       <%= form_with url: public_novels_path(type: "genre"), method: :get, local: true do |f| %>
+        <%= f.collection_check_boxes :genre_ids, Genre.all, :id, :genre_name do |b| %>
          <%= b.check_box %>
          <%= b.label %>
-       <% end %>
-       <%= button_tag type: "submit", class: "border rounded-pill shadow-sm search-btn" do %>
+        <% end %>
+        <%= button_tag type: "submit", class: "border rounded-pill shadow-sm search-btn" do %>
           <i class="fas fa-search">検索</i>
+        <% end %>
        <% end %>
-      <% end %>
+      </div>
      </div>
-
+    </div>
+  <div class="mb-4"></div>
+    <div class="row">
      <%= form_with url: public_novels_path(), method: :get, local: true do |f| %>
-      <div class="col-md-6">
-        <%= f.text_field :content %>
-        <%= f.select :method, options_for_select({"完全一致" => "perfect", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partial"}) %>
-        <%= f.submit "検索" %>
+      <div class="col-md-12">
+       <div class="row">
+        <div class="form-group col-md-9">
+          <%= f.text_field :content, class: "form-control" %>
+        </div>
+        <div class="form-group col-md-2">
+          <%= f.select :method, options_for_select({"完全一致" => "perfect", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partial"}) %>
+        </div>
+        <div class="form-group col-md-1">
+         <%= button_tag type: "submit", class: "border rounded-pill shadow-sm search-btn" do %>
+          <i class="fas fa-search">検索</i>
+         <% end %>
+        </div>
+      </div>
       </div>
      <% end %>
     </div>
     </div>
+
+  <div class="mb-4"></div>
     <div class="row">
+     <div class="col-md-3"></div>
      <div class="col-md-6">
-      <%= link_to '新しい順', public_novels_path(latest: "true") %>
-      |<%= link_to '古い順', public_novels_path(old: "true") %>
-      |<%= link_to '評価の高い順', public_novels_path(star_count: "true") %>
+      <%= link_to '新しい順', public_novels_path(latest: "true"), class: "custom-link" %>
+      |<%= link_to '古い順', public_novels_path(old: "true"), class: "custom-link" %>
+      |<%= link_to '評価の高い順', public_novels_path(star_count: "true"), class: "custom-link" %>
      </div>
+     <div class="col-md-3"></div>
     </div>
-   </div>
+  </div>
+  <div class="mb-4"></div>
+
 
  <div class='row'>
-  <th>
   <% @novels.each do |novel| %>
-   <%= render 'public/novels/novel', novel: novel %>
+   <div class="divider">
+    <%= render 'public/novels/novel', novel: novel %>
+   </div>
   <% end %>
-  </th>
  </div>
  <% else %>
     ログインしてください

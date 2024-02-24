@@ -2,7 +2,13 @@ class Admin::NovelsController < ApplicationController
   before_action :authenticate_admin!
 
   def index
+    if params[:method]
+      @content = params[:content]
+      @method = params[:method]
+      @novels = Novel.search_for(@content, @method).page(params[:page]).per(10)
+    else
     @novels = Novel.all.order(created_at: :desc).page(params[:page]).per(10)
+    end
   end
 
   def destroy_review

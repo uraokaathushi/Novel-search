@@ -1,11 +1,13 @@
-<div class='container'>
+<div class="container top">
+ <div class='row'></div>
+ <div class="mb-3"></div>
 
-  <div class='row'>
-     <div class='col-md-1'></div>
-   <div class='col-md-3 text-center'>
+  <div class="row">
+   <div class='col-md-3'></div>
+   <div class='col-5 text-center'>
     <h3 class="table-active">投稿作品編集</h3>
    </div>
-   <div class='col-md-9'></div>
+   <div class='col-md-4'></div>
    </div>
 
   <div class="mb-4"></div>
@@ -13,32 +15,75 @@
      <%= form_with model: @novel, url: public_novel_path, local: true do |f| %>
 
     <div class="row">
-     <div class="col-md-2"><p>タイトル</p></div>
-   　 <div class="col-md-7"><%= f.text_field :title, autofocus: true %></div>
-      <div class="col-md-3"></div>
+     <div class='col-md-2'></div>
+     <div class="col-md-2 text-center">
+       <h4>タイトル</h4>
+     </div>
+     <div class="col-md-7">
+       <%= f.text_field :title, autofocus: true, class: "form-control" %>
+     </div>
+     <div class="col-md-1"></div>
     </div>
 
-    <!--<div class="row">-->
-    <!-- <div class="col-md-2"><p>ジャンル</p></div>-->
-    <!-- <div class="col-md-7"><!%= f.text_field :genre_name, autofocus: true %></div>-->
-    <!--</div>-->
+  <div class="mb-4"></div>
 
-    <div class="row">
-      <div class="col-md-2"><p>サイト</p></div>
-      <div class="col-md-7"><%= f.text_field :site_name, autofocus: true %></div>
-      <div class="col-md-3"></div>
+   <div class="row">
+    <div class='col-md-2'></div>
+    <div class='col-md-2 text-center'>
+     <h4>ジャンル</h4>
     </div>
+    <div class="col-md-10"></div>
+    </div>
+   <div class="row">
+     <div class="col-md-12 border d-flex flex-row flex-wrap">
+      <% @genres.each do |genre| %>
+       <div class="col-md-1">
+        <div>
+          <%= check_box_tag 'novel[genre_ids][]', genre.id, @novel.genres.include?(genre) %>
+          <%= label_tag genre.genre_name %>
+        </div>
+       </div>
+      <% end %>
+     </div>
+   </div>
 
-    <div class="row">
-      <div class="col-md-2"><p>レビュー</p></div>
-      <div class="col-md-10"><%= f.text_area :review, autofocus: true %></div>
-    </div>
+  <div class="mb-4"></div>
 
   <div class="row">
-    <div class="form-group" id="new_star">
-      <%= f.label :star %>
-      <%= f.hidden_field :star, id: :review_star, class: 'form-control' %>
-      <div id="post_raty"></div>
+    <div class='col-md-2'></div>
+    <div class='col-md-2 text-center'>
+      <h4>掲載サイト</h4>
+    </div>
+    <div class="col-md-7">
+      <%= f.text_field :site_name, autofocus: true, class: "form-control" %>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+
+  <div class="mb-4"></div>
+
+  <div class="row">
+    <div class='col-md-2'></div>
+    <div class='col-md-2 text-center'>
+      <h4>レビュー</h4>
+    </div>
+    <div class="col-md-8"><%= f.text_area :review, autofocus: true %></div>
+    </div>
+
+  <div class="mb-4"></div>
+
+  <div class="row">
+    <div class='col-md-2'></div>
+    <div class='col-md-2 text-center'>
+     <div class="form-group" id="new_star">
+      <h4><%= f.label :star, "評価" %></h4>
+     </div>
+    </div>
+    <div class='col-md-4 text-center'>
+      <div style="display: inline-block; vertical-align: middle;">
+        <%= f.hidden_field :star, id: :review_star, class: 'form-control' %>
+       <div id="post_raty"></div>
+      </div>
     </div>
     <script>
       $(document).on('turbolinks:load', function() {
@@ -57,20 +102,23 @@
     </script>
   </div>
 
-    <div class='row'>
-      <div class="col-md-7 text-right">
+  <div class="mb-4"></div>
+
+   <div class='row'>
+    <div class='col-md-3'></div>
+    <div class='col-md-3'>
         <div class="actions">
-       　　<%= f.submit "編集内容を保存", class:"btn btn-success btn-lg", style: "width: 50%" %>
+       　　<%= f.submit "編集内容を保存", class:"btn btn-success btn-lg btn-block" %>
      　　</div>
-     　</div>
     </div>
-
-  <div class='row'>
-    <%= link_to '削除', public_novel_path(@novel), method: :delete, data: { confirm: '本当に削除しますか？' } %>
-  </div>
-
+    <div class='col-md-4'></div>
+    <div class='col-md-2 text-center'>
+      <%= link_to public_novel_path(@novel), method: :delete, class: "btn btn-danger btn-lg btn-block", data: { confirm: '本当に削除しますか？' } do %>
+       削除
+      <% end %>
+    </div>
+    </div>
   <% end %>
-
-
-
+ <div class="mb-5"></div>
+ <div class='row'></div>
 </div>

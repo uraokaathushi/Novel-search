@@ -1,11 +1,19 @@
- <div class="container">
-        <div class="row">
-          <div class="col-md-4"></div>
-          <div class="col-md-4">トップページ
-          </div>
-          <div class="col-md-4"></div>
+
+ <% if flash[:notice].present? %>
+  <div class="alert alert-success" role="alert">
+    <%= flash[:notice] %>
+  </div>
+ <% end %>
+
+ <div class="container top">
+  <div class="row mb-2"></div>
+   <div class='row text-center'><h3>管理者トップページ</h3></div>
+   <div class="row mb-5"></div>
+    <div class='row'>
+      <% @novels.each do |novel| %>
+        <div class="divider">
+          <%= render 'public/novels/novel', novel: novel %>
         </div>
-        
-
-
+      <% end %>
+    </div>
  </div>
