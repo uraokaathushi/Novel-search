@@ -1,13 +1,15 @@
 <div class='container sign'>
  <div class='row'>
-  <div class='col-md-1'></div>
+ <div class="mb-4"></div>
+ <div class='row'>
+  <div class='col-md-4'></div>
    <div class='col-3 text-center'>
     <h2>管理者ログイン</h2>
    </div>
    <div class='col-md-8'></div>
  </div>
 
- <div class="mb-5"></div>
+ <div class="mb-4"></div>
 
 <%= form_with(model: resource, url: session_path(resource_name), local: true) do |f| %>
 

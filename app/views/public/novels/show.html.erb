@@ -1,48 +1,60 @@
-<div class="container">
-
-    <h2>作品詳細</h2>
-
-     <div class="row">
-      <div class="col-md-3"></div>
-      <div class="col-md-6"><%= @novel.title %></div>
-      <div class='col-md-3'>
-      </div>
+<div class='container top'>
+  <div class='row'></div>
+   <div class="mb-3"></div>
+    <div class='row'>
+     <div class='col-12 text-center'>
+      <h3 class="table-active">
+        作品詳細
+      </h3>
      </div>
-
-
-     <div class="row mb-5"></div>
-     
-     <div class="row my-3">
-      <div class="col-md-3">ジャンル</div>
-      <div class="col-md-9"><%= @novel.genres.pluck(:genre_name).join(' / ') %></div>
     </div>
+    <div class="mb-3"></div>
 
     <div class="row">
-      <div class="col-md-2"><p>サイト</p></div>
-      <div class="col-md-7"><%= @novel.site_name %></div>
-      <div class="col-md-3"></div>
+     <div class="col-md-12 text-center"><h3><%= @novel.title %></h3></div>
     </div>
+
+
+     <div class="row mb-3"></div>
+
+    <div class='row'>
+     <div class='col-md-1'></div>
+     <div class="col-md-2 text-center"><h5>ジャンル</h5></div>
+      <div class="col-md-9"><h5><%= @novel.genres.pluck(:genre_name).join(' / ') %></h5></div>
+    </div>
+
+    <div class="mb-3"></div>
+
+    <div class='row'>
+     <div class='col-md-1'></div>
+     <div class="col-md-2 text-center"><h5>サイト</h5></div>
+      <div class="col-md-9"><h5><%= @novel.site_name %></h5></div>
+    </div>
+
+    <div class="mb-3"></div>
+
+    <div class='row'>
+     <div class='col-md-1'></div>
+     <div class="col-md-2 text-center"><h5>レビュー</h5></div>
+      <div class="col-md-9"><h5><%= @novel.review.present? ? @novel.review : "レビューはありません" %></h5></div>
+    </div>
+
+    <div class="mb-3"></div>
 
     <div class="row">
-      <div class="col-md-2"><p>レビュー</p></div>
-      <div class="col-md-10"><%= @novel.review %></div>
+      <div class="col-md-1"></div>
+      <div class="col-md-2 text-center"><h5>評価</h5></div>
+      <div class="col-md-3 text-center"><%= render "public/novels/static_rate", novel: @novel %></div>
+      <div class="col-md-6 text-center">投稿日<%= l(@novel.created_at) %></div>
     </div>
 
-        <!--<div class="row">-->
-    <!-- <div class="col-md-2"><p>お気に入り</p></div>-->
-    <!-- <div class="col-md-3"><i class="fa-light fa-star" style="color: yello;"></i><!%= @f.favorites.count %> </div>-->
-    <!--<div class="col-md-7"></div>-->
-    <!--</div>-->
-
-
-    <div class="row">
-      <%= render "public/novels/static_rate", novel: @novel %>
-    </div>
-
+    <div class="mb-3"></div>
 
     <div class="row">
      <%= render "public/comments/comment_form", novel: @novel, comment: @comment %>
     </div>
+
+    <div class="mb-3"></div>
 
     <div class="row">
      <%= render "public/comments/comment_index", novel: @novel %>

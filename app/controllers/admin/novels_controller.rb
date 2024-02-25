@@ -11,6 +11,13 @@ class Admin::NovelsController < ApplicationController
     end
   end
 
+  def destroy
+    @novel = Novel.find(params[:id])
+    @novel.destroy
+    redirect_to admin_path, notice: "小説を削除しました。"
+  end
+
+
   def destroy_review
     @novel = Novel.find(params[:id])
     @novel.update(review: nil)

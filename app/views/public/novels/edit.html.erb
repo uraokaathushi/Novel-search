@@ -1,6 +1,6 @@
 <div class="container top">
  <div class='row'></div>
- <div class="mb-3"></div>
+ <div class="mb-5"></div>
 
   <div class="row">
    <div class='col-md-3'></div>
@@ -13,7 +13,7 @@
   <div class="mb-4"></div>
 
      <%= form_with model: @novel, url: public_novel_path, local: true do |f| %>
-
+      <%= render "public/shared/error_messages", resource: @novel %>
     <div class="row">
      <div class='col-md-2'></div>
      <div class="col-md-2 text-center">
@@ -67,7 +67,8 @@
     <div class='col-md-2 text-center'>
       <h4>レビュー</h4>
     </div>
-    <div class="col-md-8"><%= f.text_area :review, autofocus: true %></div>
+    <div class="col-md-7"><%= f.text_area :review, autofocus: true, class: "form-control" %></div>
+    <div class="col-md-1"></div>
     </div>
 
   <div class="mb-4"></div>

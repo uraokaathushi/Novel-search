@@ -20,7 +20,7 @@ class Admin::GenresController < ApplicationController
     @genres = Genre.all
     @genre = Genre.find(params[:id])
     @genre.destroy
-    redirect_to admin_genres_path_path
+    redirect_to admin_genres_path
   end
 
   private

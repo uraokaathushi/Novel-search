@@ -11,7 +11,10 @@ class Admin::CustomersController < ApplicationController
 
   def edit
    @customer = Customer.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+     redirect_to admin_path, notice: "会員情報がありません"
   end
+
 
   def update
    @customer = Customer.find(params[:id])

@@ -1,4 +1,16 @@
- <%= form_with model: [novel, comment], url: public_novel_comments_path(novel) do |f| %>
-  <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに", class: "w-100", id: "comment_textarea" %>
-   <%= f.submit "送信" %>
- <% end %>
+
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-11">
+    <%= form_with model: [novel, comment], url: public_novel_comments_path(novel) do |f| %>
+    <div class="row">
+     <div class="col-md-9">
+       <%= f.text_area :comment, rows:'2',placeholder: "コメントをここに", class: "w-100", id: "comment_textarea" %>
+     </div>
+     <div class="col-md-3">
+       <%= f.submit "送信", class: 'btn btn-info btn-lg', style: "width: 80%" %>
+     </div>
+    </div>
+    <% end %>
+  </div>
+</div>

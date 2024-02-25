@@ -1,38 +1,68 @@
+<div class='container top'>
+ <div class='row'></div>
+ <div class="mb-5"></div>
+  <div class='row'>
+   <div class='col-md-3'></div>
+   <div class='col-5 text-center'>
+      <h3 class="table-active">
+        <%= @customer.name %>さんの会員情報
+      </h3>
+   </div>
+   <div class='col-md-4'></div>
+  </div>
 
- <table class="table table-borderless">
+  <div class="mb-5"></div>
 
-  <tr class="text-left">
-      <th class="table-active"><%= @customer.name %>さんの会員詳細 </th>
-  </tr>
+   <div class='row'>
+    <div class='col-md-3'></div>
+    <div class='col-md-2'><h3>会員ID</h3></div>
+    <div class='col-md-4'><h3><%= @customer.id %></h3></div>
+    <div class='col-md-3'></div>
+  </div>
 
-  <tr class="text-left">
-    <th class='col-md-3 text-left'>会員ID</th>
-    <td class='col-md-9 text-left'><%= @customer.id %></td>
-  </tr>
+ <div class="mb-5"></div>
 
-  <tr class="text-left">
-    <th>名前</th>
-    <td><%= @customer.name %></td>
-  </tr>
+  <div class='row'>
+     <div class='col-md-3'></div>
+     <div class="col-md-2"><h3>名前</h3></div>
+     <div class='col-md-4'><h3><%= @customer.name %></h3></div>
+    <div class='col-md-3'></div>
+  </div>
 
-  <tr class="text-left">
-    <th>メールアドレス</th>
-    <td><%= @customer.email %></td>
-  </tr>
+ <div class="mb-5"></div>
 
-  <tr class="text-left">
-    <th>会員ステータス</th>
-    <td class="<%= @customer.is_active ? 'text-success' : '' %>">
+  <div class='row'>
+     <div class='col-md-3'></div>
+     <div class="col-md-2"><h3>メールアドレス</h3></div>
+     <div class='col-md-4'><h3><%= @customer.email %></h3></div>
+    <div class='col-md-3'></div>
+  </div>
+
+ <div class="mb-5"></div>
+
+  <div class='row'>
+     <div class='col-md-3'></div>
+     <div class="col-md-2"><h3>会員ステータス</h3></div>
+     <div class='col-md-4'><h3><td class="<%= @customer.is_active ? 'text-success' : '' %>">
       <%= @customer.is_active ? "有効" : "無効" %>
-     </td>
-  </tr>
+      </td></h3>
+     </div>
+     <div class='col-md-3'></div>
+  </div>
 
-  <tr>
-    <td>
+ <div class="mb-5"></div>
+
+   <div class='row'>
+    <div class='col-md-4'></div>
+     <div class='col-md-4'>
       <%= link_to edit_admin_customer_path(@customer), class: "btn btn-success btn-lg" do %>
-      <i>編集する</i>
+      <i>登録情報編集</i>
       <% end %>
-    </td>
-  </tr>
+     </div>
+     <div class='col-md-4'></div>
+   </div>
+ <div class="mb-5"></div>
+ <div class='row'></div>
+</div>
 
- </table>
+

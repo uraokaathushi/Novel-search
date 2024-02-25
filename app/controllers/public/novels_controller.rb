@@ -52,6 +52,8 @@ class Public::NovelsController < ApplicationController
       @novels = Novel.all
       redirect_to public_novels_path
     end
+  rescue ActiveRecord::RecordNotFound
+   redirect_to root_path, notice: "小説が見つかりません"
   end
 
   def update

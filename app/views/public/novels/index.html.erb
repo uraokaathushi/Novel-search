@@ -9,7 +9,7 @@
   <div class='row text-center'>
    <h2>作品一覧</h2>
   </div>
-  
+
   <% if current_customer %>
 
   <div class="col-md-12 my-3 p-3 border shadow-sm">
@@ -76,5 +76,14 @@
     ログインしてください
  <% end %>
 
+   <div class='row text-center'>
+    <div class='col-md-3'></div>
+    <div class='col-md-6'>
+      <%= paginate @novels %>
+    </div>
+    <div class='col-md-3'></div>
+   </div>
 
+ <div class="mb-5"></div>
+ <div class='row'></div>
 </div>

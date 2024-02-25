@@ -1,33 +1,31 @@
 
-<div class='container px-5 px-sm-0'>
-
+<div class='container top'>
+ <div class="row mb-3"></div>
  <div class="mb-3"></div>
-
- <div class='row'><h4 class="table-active">会員一覧</h4></div>
+ <div class='row text-center'>
+  <h2>会員一覧</h2>
+ </div>
 
  <div class="mb-md-3"></div>
 
  <table class="table table-hover table-inverse">
-
-    <div class='row'>
-     <thead class="thead-light">
-     <tr>
-     <th class='col-md-2'>会員ID</th>
-     <th class='col-md-3'>氏名</th>
-     <th class='col-md-3'>メールアドレス</th>
+  <div class='row'>
+   <thead class="text-center">
+    <tr>
+     <th class='col-md-1'>会員ID</th>
+     <th class='col-md-4'>氏名</th>
+     <th class='col-md-4'>メールアドレス</th>
      <th class='col-md-3'>ステータス</th>
-     </tr>
-     </thead>
-    </div>
-
-
+    </tr>
+   </thead>
+  </div>
 
  <div class='row'>
-   <tbody class="text-left">
+   <tbody class="text-center">
      <% @customers.each do |customer| %>
     <tr>
      <td><%= customer.id %></td>
-     <td><%= link_to admin_customer_path(customer.id) do %>
+     <td><%= link_to admin_customer_path(customer.id), class: "custom-link" do %>
        <%= customer.name %>
       <% end %>
      </td>
@@ -46,4 +44,8 @@
   <div class='col-md-6'>
    <%= paginate @customers %></div>
   <div class='col-md-3'></div>
+ </div>
+
+ <div class="mb-5"></div>
+ <div class='row'></div>
 </div>

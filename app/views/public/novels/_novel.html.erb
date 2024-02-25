@@ -1,10 +1,11 @@
 
+ <div class="row mb-3"></div>
  <div class="row">
     <div class="col-md-12">
      <div class="row">
       <div class="col-md-9 text-center">
        <a href="<%= public_novel_path(novel)%>" class="custom-link">
-        <%= novel.title %></a></div>
+        <h4><%= novel.title %></h4></a></div>
       <div class="col-md-3">
        <% if current_customer && novel.customer_id == current_customer.id %>
         <%= link_to edit_public_novel_path(novel), class: "btn btn-success btn-lg" do %>
@@ -16,32 +17,33 @@
       </div>
      </div>
 
-     <div class="row my-3">
+     <div class="row">
       <div class="col-md-1"></div>
-      <div class="col-md-1 text-center">ジャンル:</div>
-      <div class="col-md-10"><%= novel.genres.pluck(:genre_name).join(' / ') %></div>
+      <div class="col-md-2 text-center"><h5>ジャンル:</h5></div>
+      <div class="col-md-9"><h5><%= novel.genres.pluck(:genre_name).join(' / ') %></h5></div>
      </div>
 
      <div class="row">
       <div class="col-md-1"></div>
-      <div class="col-md-1 text-center"><p>サイト名:</p></div>
-      <div class="col-md-10"><%= novel.site_name %></div>
+      <div class="col-md-2 text-center"><h5>サイト名:</h5></div>
+      <div class="col-md-9"><h5><%= novel.site_name %></h5></div>
      </div>
 
      <div class="row">
       <div class="col-md-1"></div>
-      <div class="col-md-1 text-center"><p>レビュー:</p></div>
-      <div class="col-md-10"><%= novel.review.present? ? novel.review : "レビューはありません"  %></div>
+      <div class="col-md-2 text-center"><h5>レビュー:</h5></div>
+      <div class="col-md-9"><h5><%= novel.review.present? ? novel.review : "レビューはありません"  %></h5></div>
      </div>
 
      <div class="row">
-      <div class="col-md-2"></div>
-      <div class="col-md-4 text-center"><%= render "public/novels/static_rate", novel: novel %></div>
-      <div class="col-md-6 text-center"><%= l(novel.created_at) %></div>
+      <div class="col-md-1"></div>
+      <div class="col-md-2 text-center"><h5>評価:</h5></div>
+      <div class="col-md-3"><%= render "public/novels/static_rate", novel: novel %></div>
+      <div class="col-md-6 text-center"><h5>投稿日<%= l(novel.created_at) %></h5></div>
      </div>
     </div>
 
- <div class="row mb-5"></div>
+ <div class="row mb-3"></div>
 
 </div>
 

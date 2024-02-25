@@ -1,7 +1,20 @@
-<table>
-      <tbody>
+
+<table class="table table-hover table-inverse">
+  <div class='row'>
+   <thead class="thead-left">
+    <tr>
+     <th class='col-md-1'></th>
+     <th class='col-md-2'>氏名</th>
+     <th class='col-md-7'>コメント</th>
+     <th class='col-md-2'></th>
+    </tr>
+   </thead>
+  </div>
+  <div class='row'>
+   <tbody class="text-left">
          <% @novel.comments.each do |comment| %>
         <tr>
+          <td></td>
           <td>
            <%= comment.customer.name %>
           </td>
@@ -13,5 +26,6 @@
            </td>
           </tr>
         <% end %>
-      </tbody>
+   </tbody>
+  </div>
 </table>
