@@ -22,18 +22,18 @@
 
 
 body {
-  background-image: url("/assets/main.jpg");
+  background-image: image-url("main.jpg");
 }
     /* 全ての画面のスタイル */
 
 .top {
-    background-image: url('/assets/top1.jpg');
+    background-image: image-url('top1.jpg');
     background-size: cover;
     /* ログイン、新規登録以外画面のスタイル */
 }
 
 .sign {
-    background-image: url('/assets/sign.jpg');
+    background-image: image-url('sign.jpg');
     background-size: cover;
     /* ログイン、新規登録画面のスタイル */
 }
