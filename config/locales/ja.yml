@@ -10,3 +10,10 @@ ja:
       admin:
         signed_in: "管理者としてログインしました"
         signed_out: "管理者としてログアウトしました"
+  activerecord:
+    errors:
+      models:
+        customer:
+          attributes:
+            email:
+              taken: "メールアドレスは既に使用されています。"
