@@ -1,14 +1,19 @@
 <div class="container top">
- <div class="row mb-3"></div>
-  <div class='row text-center'><h2>投稿作品一覧</h2></div>
+ <div class="row"></div>
+ <div class="mb-3"></div>
+ <div class='row'>
+  <div class='col-md-12 text-center'>
+   <h3 class=='text-center'>作品一覧</h3>
+  </div>
+ </div>
    <div class="mb-5"></div>
-
-   <div class='row'>
+   <div class="divider">
     <% @novels.each do |novel| %>
-     <div class="divider">
+     <div class='row'>
        <%= render 'public/novels/novel', novel: novel, id: novel.id %>
      </div>
     <% end %>
    </div>
-
+ <div class="mb-5"></div>
+ <div class='row'></div>
 </div>

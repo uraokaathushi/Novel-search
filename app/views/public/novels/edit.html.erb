@@ -34,18 +34,16 @@
     </div>
     <div class="col-md-10"></div>
     </div>
-   <div class="row">
-     <div class="col-md-12 border d-flex flex-row flex-wrap">
+
+
       <% @genres.each do |genre| %>
-       <div class="col-md-1">
-        <div>
+      <div class="row">
+        <div class="col-md-11">
           <%= check_box_tag 'novel[genre_ids][]', genre.id, @novel.genres.include?(genre) %>
           <%= label_tag genre.genre_name %>
         </div>
        </div>
       <% end %>
-     </div>
-   </div>
 
   <div class="mb-4"></div>
 

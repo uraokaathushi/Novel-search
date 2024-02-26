@@ -1,14 +1,17 @@
+
+<div class="container top">
 <% if flash[:notice].present? %>
   <div class="alert alert-success" role="alert">
     <%= flash[:notice] %>
   </div>
 <% end %>
-
-<div class="container top">
- <div class="row mb-3"></div>
-  <div class='row text-center'>
-   <h2>作品一覧</h2>
+ <div class='row'></div>
+ <div class="mb-3"></div>
+ <div class='row'>
+  <div class='col-md-12 text-center'>
+   <h3 class=='text-center'>作品一覧</h3>
   </div>
+ </div>
 
   <% if current_customer %>
 
@@ -30,28 +33,28 @@
      </div>
     </div>
   <div class="mb-4"></div>
-    <div class="row">
+
      <%= form_with url: public_novels_path(), method: :get, local: true do |f| %>
-      <div class="col-md-12">
-       <div class="row">
-        <div class="form-group col-md-9">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-8">
           <%= f.text_field :content, class: "form-control" %>
         </div>
-        <div class="form-group col-md-2">
+        <div class="col-md-1">
           <%= f.select :method, options_for_select({"完全一致" => "perfect", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partial"}) %>
         </div>
-        <div class="form-group col-md-1">
+        <div class="col-md-2 text-center">
          <%= button_tag type: "submit", class: "border rounded-pill shadow-sm search-btn" do %>
           <i class="fas fa-search">検索</i>
          <% end %>
         </div>
-      </div>
-      </div>
+    </div>
      <% end %>
     </div>
     </div>
 
   <div class="mb-4"></div>
+
     <div class="row">
      <div class="col-md-3"></div>
      <div class="col-md-6">
@@ -61,13 +64,12 @@
      </div>
      <div class="col-md-3"></div>
     </div>
-  </div>
+
   <div class="mb-4"></div>
 
-
- <div class='row'>
+ <div class="divider">
   <% @novels.each do |novel| %>
-   <div class="divider">
+   <div class='row'>
     <%= render 'public/novels/novel', novel: novel %>
    </div>
   <% end %>

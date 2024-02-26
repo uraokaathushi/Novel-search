@@ -1,13 +1,11 @@
 
 <div class='container sign'>
- <div class='row'>
+ <div class="row"></div>
  <div class="mb-4"></div>
  <div class='row'>
-  <div class='col-md-4'></div>
-   <div class='col-3 text-center'>
-    <h2>新規登録画面</h2>
-   </div>
-   <div class='col-md-8'></div>
+  <div class='col-md-12 text-center'>
+   <h3 class=='text-center'>新規登録画面</h3>
+  </div>
  </div>
 
   <div class="mb-4"></div>
@@ -34,8 +32,8 @@
    <div class="mb-5"></div>
 
    <div class='row'>
-     <div class='col-2'></div>
-     <div class='col-2'><h5><%= f.label :password, "パスワード" %>
+     <div class='col-1'></div>
+     <div class='col-3'><h5><%= f.label :password, "パスワード" %>
        <% if @minimum_password_length %>
          <em>(<%= @minimum_password_length %> 文字以上)</em>
        <% end %></h5></div>
@@ -46,8 +44,8 @@
    <div class="mb-5"></div>
 
    <div class='row'>
-     <div class='col-2'></div>
-     <div class='col-2'><h5><%= f.label :password_confirmation, "パスワード(確認用)" %></h5></div>
+     <div class='col-1'></div>
+     <div class='col-3'><h5><%= f.label :password_confirmation, "パスワード(確認用)" %></h5></div>
      <div class='col-6'><%= f.password_field :password_confirmation, autocomplete: "new-password", style: "width: 80%" %></div>
      <div class='col-2'></div>
    </div>
