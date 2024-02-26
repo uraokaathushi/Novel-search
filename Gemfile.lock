@@ -276,7 +276,7 @@ DEPENDENCIES
   font-awesome-sass
   jbuilder (~> 2.7)
   kaminari
-  listen (~> 3.3)
+  listen
   net-imap
   net-pop
   net-smtp
