@@ -7,13 +7,13 @@
   </div>
  </div>
    <div class="mb-5"></div>
-   <div class="divider">
     <% @novels.each do |novel| %>
      <div class='row'>
        <%= render 'public/novels/novel', novel: novel, id: novel.id %>
      </div>
+     <div class="mb-4"></div>
+     <div class="divider"></div>
     <% end %>
-   </div>
  <div class="mb-5"></div>
  <div class='row'></div>
 </div>

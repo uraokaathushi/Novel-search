@@ -67,13 +67,16 @@
 
   <div class="mb-4"></div>
 
- <div class="divider">
+
   <% @novels.each do |novel| %>
-   <div class='row'>
+   <div class='row '>
     <%= render 'public/novels/novel', novel: novel %>
    </div>
+   <div class="mb-4"></div>
+   <div class="divider"></div>
   <% end %>
- </div>
+
+
  <% else %>
     ログインしてください
  <% end %>

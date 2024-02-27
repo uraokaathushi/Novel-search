@@ -12,7 +12,6 @@
     </div>
    <div class="row mb-5"></div>
       <% @novels.each do |novel| %>
-        <div class="divider">
          <div class='row'>
           <div class="col-md-11">
           <%= render 'public/novels/novel', novel: novel %>
@@ -23,11 +22,10 @@
      　　    <% end %>
           </div>
         </div>
-       </div>
+       <div class="mb-4"></div>
+       <div class="divider"></div>
       <% end %>
-
- <div class="mb-5"></div>
-
+   <div class="mb-5"></div>
    <div class='row text-center'>
     <div class='col-md-3'></div>
     <div class='col-md-6'>
