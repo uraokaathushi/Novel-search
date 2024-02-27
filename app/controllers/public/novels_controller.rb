@@ -1,5 +1,6 @@
 class Public::NovelsController < ApplicationController
    before_action :authenticate_customer!
+   
   def new
     @novel = Novel.new
     @genres = Genre.all

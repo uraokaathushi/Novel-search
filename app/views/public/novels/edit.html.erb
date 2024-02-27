@@ -32,18 +32,19 @@
     <div class='col-md-2 text-center'>
      <h4>ジャンル</h4>
     </div>
-    <div class="col-md-10"></div>
-    </div>
-
-
+    <div class="col-md-8">
+     <div class="overflow-x-auto d-flex">
       <% @genres.each do |genre| %>
-      <div class="row">
-        <div class="col-md-11">
+        <div class="mr-3">
           <%= check_box_tag 'novel[genre_ids][]', genre.id, @novel.genres.include?(genre) %>
           <%= label_tag genre.genre_name %>
         </div>
-       </div>
       <% end %>
+     </div>
+    </div>
+   </div>
+
+
 
   <div class="mb-4"></div>
 
@@ -91,9 +92,9 @@
 
         elem.innerHTML = ""
         let opt = {
-          starOn: "/assets/star-on.png",
-          starOff: "/assets/star-off.png",
-          starHalf: "/assets/star-half.png",
+          starOn: "<%= asset_path('star-on.png') %>",
+          starOff: "<%= asset_path('star-off.png') %>",
+          starHalf: "<%= asset_path('star-half.png') %>",
           scoreName: 'novel[star]',
         };
         raty(elem, opt);

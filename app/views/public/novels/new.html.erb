@@ -33,24 +33,17 @@
     <div class='col-md-2 text-center'>
      <h4>ジャンル</h4>
     </div>
-   </div>
-   <div class="row">
-    <div class="overflow-x-auto">
-     <div class="col-md-12 border flex-row flex-wrap">
+    <div class="col-md-8 ">
+     <div class="overflow-x-auto d-flex">
       <%= f.collection_check_boxes :genre_ids, @genres, :id, :genre_name do |b| %>
-      <div class="mx-2 mt-1">
-       <div style="display: inline-block;">
+       <div class="mr-3">
         <%= b.check_box %>
+        <%= b.label %>
        </div>
-       <div style="display: inline-block;">
-        <h6><%= b.label %></h6>
-       </div>
-      </div>
-     <% end %>
+      <% end %>
      </div>
     </div>
    </div>
-
 
   <div class="mb-4"></div>
 
