@@ -19,7 +19,3 @@
    password: 'novels',
  )
  
-  Admin.create!(
-   email: 'admin@login2',
-   password: 'aaaaaa',
- )
