@@ -1,4 +1,11 @@
+
 ja:
+  errors:
+    messages:
+      already_confirmed: 'はすでに確認済みです'
+      confirmation_period_expired: 'の確認期間が切れています。もう一度確認メールを送信してください。'
+    blank: "を入力してください"
+    model_errors: "データが保存できませんでした。"
   time:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
@@ -7,13 +14,31 @@ ja:
       customer:
         signed_in: "ログインしました"
         signed_out: "ログアウトしました"
+        invalid: "メールアドレスまたはパスワードが正しくありません"
       admin:
         signed_in: "管理者としてログインしました"
         signed_out: "管理者としてログアウトしました"
+        invalid: "メールアドレスまたはパスワードが正しくありません"
+  attributes:
+    customer:
+      email: "メールアドレス"
+      password: "パスワード"
+      name: "名前"
   activerecord:
+    attributes:
+      customer:
+        name: "名前"
+        password: "パスワード"
+        email: "メールアドレス"
     errors:
       models:
         customer:
+          taken: "は既に使用されています。"
           attributes:
+            name:
+              blank: "を入力してください"
+            password:
+              blank: "を入力してください"
             email:
-              taken: "メールアドレスは既に使用されています。"
+              blank: "を入力してください"
+

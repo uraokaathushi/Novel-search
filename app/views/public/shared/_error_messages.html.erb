@@ -1,7 +1,7 @@
 <% if resource.errors.any? %>
   <div id="error_explanation" data-turbo-cache="false">
     <h2>
-     データが保存できませんでした。
+     <%= t('errors.model_errors') %>
     </h2>
     <ul>
       <% resource.errors.full_messages.each do |message| %>

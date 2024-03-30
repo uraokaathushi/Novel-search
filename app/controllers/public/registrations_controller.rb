@@ -42,7 +42,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
    def configure_sign_up_params
-     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :password, :email])
+     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :password, :email, :password_confirmation])
    end
 
   # If you have extra params to permit, append them to the sanitizer.
@@ -60,3 +60,4 @@ class Public::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
 end
+ 

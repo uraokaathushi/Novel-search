@@ -1,6 +1,6 @@
 class Public::NovelsController < ApplicationController
    before_action :authenticate_customer!
-   
+
   def new
     @novel = Novel.new
     @genres = Genre.all
@@ -48,7 +48,19 @@ class Public::NovelsController < ApplicationController
 
   def edit
     @novel = Novel.find_by(id: params[:id])
+
+    if @novel.blank?
+      redirect_to public_novels_path, notice: "小説がありません"
+      return
+    end
+
+    if @novel.customer_id != current_customer.id
+      redirect_to public_novels_path, notice: "他のユーザーのデータです"
+      return
+    end
+
     @genres = Genre.all
+
     if @novel.nil?
       @novels = Novel.all
       redirect_to public_novels_path

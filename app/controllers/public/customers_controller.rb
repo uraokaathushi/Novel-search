@@ -3,7 +3,7 @@ class Public::CustomersController < ApplicationController
 
   def show
     @customer = current_customer
-    @novels = current_customer.novels 
+    @novels = current_customer.novels
   end
 
   def edit
@@ -19,7 +19,7 @@ class Public::CustomersController < ApplicationController
   end
 
   def unsubscribe
-    @customer = current_customer
+    @customer = current_customers
   end
 
   def withdraw

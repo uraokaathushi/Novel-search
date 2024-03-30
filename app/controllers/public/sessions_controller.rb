@@ -55,7 +55,7 @@ class Public::SessionsController < Devise::SessionsController
 
   # If you have extra params to permit, append them to the sanitizer.
    def configure_sign_in_params
-     devise_parameter_sanitizer.permit(:sign_in, keys: [:name, :password])
+     devise_parameter_sanitizer.permit(:sign_in, keys: [:name, :password, :password_confirmation])
    end
 
 
@@ -70,5 +70,4 @@ class Public::SessionsController < Devise::SessionsController
     def customer_params
      params.require(:customer).permit(:name, :email, :encrypted_password, :password_confirmation)
     end
-
 end
