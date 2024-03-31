@@ -19,26 +19,33 @@ class Public::NovelsController < ApplicationController
   end
 
   def index
-   if params[:genre_ids]
-      if params[:genre_ids].present?
-          @genres = Genre.where(id: params[:genre_ids].compact_blank)
-          @novels = Kaminari.paginate_array( Novel.joins(:genres_selects).where(genres_selects: {genre_id: params[:genre_ids].compact_blank }).order(created_at: :desc).uniq).page(params[:page]).per(10)
-      else
-          @novels = Novel.all.order(created_at: :desc).page(params[:page]).per(10)
-      end
-   elsif params[:method]
-          @content = params[:content]
-          @method = params[:method]
-          @novels = Novel.search_for(@content, @method).page(params[:page]).per(10)
-   elsif params[:latest]
-          @novels = Novel.latest.page(params[:page]).per(10)
-   elsif params[:old]
-          @novels = Novel.old.page(params[:page]).per(10)
-   elsif params[:star_count]
-          @novels = Novel.star_count.page(params[:page]).per(10)
-   else
-       @novels = Novel.all.order(created_at: :desc).page(params[:page]).per(10)
-   end
+    genre_ids = (params[:genre_ids] || [""]).reject(&:blank?)
+    content = params[:content]
+    method = params[:method]
+    sort_by = params[:sort_by]
+
+    @novels = Novel.all
+
+    if genre_ids.present?
+      @novels = Novel.joins(:genres_selects).where(genres_selects: {genre_id: genre_ids}).distinct
+    end
+
+    if content.present?
+      @novels =  Novel.search_for(@novels, content, method)
+    end
+
+    case sort_by
+    when 'latest'
+      @novels = @novels.latest
+    when 'old'
+      @novels = @novels.old
+    when 'star_count'
+      @novels = @novels.star_count
+    else
+      @novels = @novels
+    end
+
+    @novels = @novels.page(params[:page]).per(10)
   end
 
   def show

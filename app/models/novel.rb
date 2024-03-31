@@ -34,15 +34,15 @@ validates :title,presence:true
    end
  end
 
- def self.search_for(content, method)
+ def self.search_for(data, content, method)
     if method == 'perfect'
-      Novel.where('title = ? OR review = ?', content, content)
+      data.where('title = ? OR review = ?', content, content)
     elsif method == 'forward'
-      Novel.where('title LIKE ? OR review LIKE ?', content + '%', content + '%')
+      data.where('title LIKE ? OR review LIKE ?', content + '%', content + '%')
     elsif method == 'backward'
-      Novel.where('title LIKE ? OR review LIKE ?', '%' + content, '%' + content)
+      data.where('title LIKE ? OR review LIKE ?', '%' + content, '%' + content)
     else
-      Novel.where('title LIKE ? OR review LIKE ?', '%' + content + '%', '%' + content + '%')
+      data.where('title LIKE ? OR review LIKE ?', '%' + content + '%', '%' + content + '%')
     end
  end
 

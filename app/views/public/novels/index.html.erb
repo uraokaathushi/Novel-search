@@ -17,50 +17,43 @@
 
   <div class="col-md-12 my-3 p-3 border shadow-sm">
    <div class="search">
-    <div class="row">
-     <div class="col-md-12">
-      <div class="overflow-x-auto">
-       <%= form_with url: public_novels_path(type: "genre"), method: :get, local: true do |f| %>
+<%= form_with url: public_novels_path(), method: :get, local: true do |f| %>
+   <div class="row">
+    <div class="col-md-12">
         <%= f.collection_check_boxes :genre_ids, Genre.all, :id, :genre_name do |b| %>
          <%= b.check_box %>
          <%= b.label %>
         <% end %>
-        <%= button_tag type: "submit", class: "border rounded-pill shadow-sm search-btn" do %>
-          <i class="fas fa-search">検索</i>
-        <% end %>
-       <% end %>
-      </div>
-     </div>
     </div>
-  <div class="mb-4"></div>
-
-     <%= form_with url: public_novels_path(), method: :get, local: true do |f| %>
-    <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-8">
-          <%= f.text_field :content, class: "form-control" %>
-        </div>
-        <div class="col-md-1">
-          <%= f.select :method, options_for_select({"完全一致" => "perfect", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partial"}) %>
-        </div>
-        <div class="col-md-2 text-center">
-         <%= button_tag type: "submit", class: "border rounded-pill shadow-sm search-btn" do %>
-          <i class="fas fa-search">検索</i>
-         <% end %>
-        </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+      <%= f.text_field :content, class: "form-control", placeholder: "キーワードで検索" %>
     </div>
-     <% end %>
+    <div class="col-md-2 text-right">
+      <%= f.select :method, options_for_select({"完全一致" => "perfect", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partial"}, params[:method]), include_blank: true, class: "form-control" %>
     </div>
+    <div class="col-md-2 text-right">
+      <%= f.select :sort_by, options_for_select({"新しい順" => "latest", "古い順" => "old", "評価の高い順" => "star_count"}, params[:sort_by]), include_blank: "並び替え", class: "form-control" %>
     </div>
+    <div class="col-md-2 text-center">
+      <%= button_tag type: "submit", class: "btn btn-primary" do %>
+        <i class="fas fa-search"></i> 検索
+      <% end %>
+    </div>
+   </div>
+<% end %>
+    </div>
+   </div>
 
   <div class="mb-4"></div>
 
     <div class="row">
      <div class="col-md-3"></div>
      <div class="col-md-6">
-      <%= link_to '新しい順', public_novels_path(latest: "true"), class: "custom-link" %>
-      |<%= link_to '古い順', public_novels_path(old: "true"), class: "custom-link" %>
-      |<%= link_to '評価の高い順', public_novels_path(star_count: "true"), class: "custom-link" %>
+      <%= link_to '新しい順', public_novels_path(genre_ids: params[:genre_ids], content: params[:content], method: params[:method], sort_by: 'latest'), class: "custom-link" %>
+      |<%= link_to '古い順', public_novels_path(genre_ids: params[:genre_ids], content: params[:content], method: params[:method], sort_by: 'old'), class: "custom-link" %>
+      |<%= link_to '評価の高い順', public_novels_path(genre_ids: params[:genre_ids], content: params[:content], method: params[:method], sort_by: 'star_count'), class: "custom-link" %>
      </div>
      <div class="col-md-3"></div>
     </div>
