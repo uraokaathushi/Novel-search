@@ -1,5 +1,5 @@
 class Public::NovelsController < ApplicationController
-   before_action :authenticate_customer!
+  before_action :authenticate_customer!
 
   def new
     @novel = Novel.new
@@ -23,9 +23,7 @@ class Public::NovelsController < ApplicationController
     content = params[:content]
     method = params[:method]
     sort_by = params[:sort_by]
-
     @novels = Novel.all
-
     if genre_ids.present?
       @novels = Novel.joins(:genres_selects).where(genres_selects: {genre_id: genre_ids}).distinct
     end
