@@ -26,6 +26,10 @@ body {
 }
     /* 全ての画面のスタイル */
 
+.main {
+  margin-top: 0; /* もし必要ならば本来のマージンをリセット */
+}
+
 .top {
     background-image: image-url('top1.jpg');
     background-size: cover;
