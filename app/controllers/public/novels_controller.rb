@@ -39,7 +39,7 @@ class Public::NovelsController < ApplicationController
     end
 
     if start_date.present? && end_date.present?
-      @novels = @novels.where(created_at: start_date..end_date)
+      @novels = @novels.where(created_at: start_date.to_date.beginning_of_day..end_date.to_date.end_of_day)
     end
 
     if min_star.present? && max_star.present?
@@ -53,6 +53,8 @@ class Public::NovelsController < ApplicationController
       @novels = @novels.old
     when 'star_count'
       @novels = @novels.star_count
+    when 'all'
+      @novels = Novel.all
     else
       @novels = @novels
     end

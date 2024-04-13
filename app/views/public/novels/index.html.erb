@@ -47,12 +47,7 @@
     <div class="col-md-3">
       <%= f.date_field :end_date, class: "form-control", placeholder: "終了日" %>
     </div>
-    <div class="col-md-2">
-      <%= f.number_field :min_star, class: "form-control", placeholder: "最小評価" %>
-    </div>
-    <div class="col-md-2">
-      <%= f.number_field :max_star, class: "form-control", placeholder: "最大評価" %>
-    </div>
+    <div class="col-md-4"></div>
     <div class="col-md-2 text-center">
       <%= button_tag type: "submit", class: "btn btn-primary" do %>
         <i class="fas fa-search"></i> 検索
@@ -72,6 +67,7 @@
       <%= link_to '新しい順', public_novels_path(genre_ids: params[:genre_ids], content: params[:content], method: params[:method], sort_by: 'latest'), class: "custom-link" %>
       |<%= link_to '古い順', public_novels_path(genre_ids: params[:genre_ids], content: params[:content], method: params[:method], sort_by: 'old'), class: "custom-link" %>
       |<%= link_to '評価の高い順', public_novels_path(genre_ids: params[:genre_ids], content: params[:content], method: params[:method], sort_by: 'star_count'), class: "custom-link" %>
+      |<%= link_to '累計', public_novels_path(genre_ids: params[:genre_ids], content: params[:content], method: params[:method], sort_by: 'all'), class: "custom-link" %>
      </div>
      <div class="col-md-3"></div>
     </div>
