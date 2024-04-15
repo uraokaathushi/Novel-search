@@ -15,8 +15,8 @@
 
    <div class='row'>
      <div class='col-2'></div>
-     <div class='col-2'><h5><%= f.label :name, "名前" %></h5></div>
-     <div class='col-6'><%= f.text_field :name, autofocus: true, autocomplete: "name", style: "width: 80%" %></div>
+     <div class='col-md-2'><h5><%= f.label :name, "名前" %></h5></div>
+     <div class='col-md-6'><%= f.text_field :name, autofocus: true, autocomplete: "name", style: "width: 80%" %></div>
      <div class='col-2'></div>
    </div>
 
@@ -24,8 +24,8 @@
 
    <div class='row'>
      <div class='col-2'></div>
-     <div class='col-2'><h5><%= f.label :password, "パスワード" %></h5></div>
-     <div class='col-6'><%= f.password_field :password, autocomplete: "current-password", style: "width: 80%" %></div>
+     <div class='col-md-2'><h5><%= f.label :password, "パスワード" %></h5></div>
+     <div class='col-md-6'><%= f.password_field :password, autocomplete: "current-password", style: "width: 80%" %></div>
      <div class='col-2'></div>
    </div>
 
@@ -33,7 +33,7 @@
 
    <div class='row'>
     <div class='col-4'></div>
-    <div class="col-3">
+    <div class="col-md-3">
      <div class="actions">
       <%= f.submit "ログイン", class: 'btn btn-success btn-lg', style: "width: 80%" %>
      </div>
@@ -44,16 +44,16 @@
   <div class="mb-5"></div>
 
   <div class="row">
-    <div class="col-md-2"></div>
+    <div class="col-2"></div>
     <div class="col-md-4"><h4>会員登録がまだの方</div>
     <div class="col-md-6"></div>
   </div>
 
   <div class="row">
-    <div class="col-md-2"></div>
+    <div class="col-2"></div>
     <div class="col-md-5">
     <h4><%= render "public/shared/links" %>から新規登録してください</h4></div>
-    <div class="col-md-5"></div>
+    <div class="col-5"></div>
   </div>
   <div class="mb-5"></div>
   <div class="row"></div>

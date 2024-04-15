@@ -31,10 +31,10 @@
       <%= f.text_field :content, class: "form-control", placeholder: "キーワードで検索" %>
     </div>
     <div class="col-md-2 text-right">
-      <%= f.select :method, options_for_select({"完全一致" => "perfect", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partial"}, params[:method]), include_blank: true, class: "form-control" %>
+      一致： <%= f.select :method, options_for_select({"完全一致" => "perfect", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partial"}, params[:method]), include_blank: true, class: "form-control" %>
     </div>
     <div class="col-md-2 text-right">
-      <%= f.select :sort_by, options_for_select({"新しい順" => "latest", "古い順" => "old", "評価の高い順" => "star_count"}, params[:sort_by]), include_blank: "", class: "form-control" %>
+      順番： <%= f.select :sort_by, options_for_select({"新しい順" => "latest", "古い順" => "old", "高評価順" => "star_count"}, params[:sort_by]), include_blank: "", class: "form-control" %>
     </div>
    </div>
 
@@ -76,7 +76,7 @@
 
 
   <% @novels.each do |novel| %>
-   <div class='row '>
+   <div class='row'>
     <%= render 'public/novels/novel', novel: novel %>
    </div>
    <div class="mb-4"></div>

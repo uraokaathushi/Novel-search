@@ -63,3 +63,23 @@ body {
 .fa-trash-alt {
   margin-left: 20px;
 }
+
+/* 500px以下（スマートフォンサイズ） */
+@media screen and (max-width: 500px) {
+
+.center {
+  margin-left: 30px;
+  margin-right: 30px;
+  text-align: center;
+}
+
+.session-label {
+  width: 100%;
+}
+
+.space {
+  flex-basis: 10%;
+  max-width: 0%;
+}
+
+}
