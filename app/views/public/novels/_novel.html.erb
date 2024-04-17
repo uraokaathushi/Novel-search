@@ -4,8 +4,8 @@
      <div class="row">
       <div class="col-md-9 text-center">
        <a href="<%= public_novel_path(novel)%>" class="custom-link">
-        <h4><%= novel.title %></h4></a></div>
-      <div class="col-md-3">
+        <h4 class="center"><%= novel.title %></h4></a></div>
+      <div class="col-md-3 no-custom-link">
        <% if current_customer && novel.customer_id == current_customer.id %>
         <%= link_to edit_public_novel_path(novel), class: "btn btn-success btn-lg" do %>
          <i>編集</i>
@@ -16,29 +16,29 @@
       </div>
      </div>
 
-     <div class="row">
+     <div class="row center">
       <div class="col-md-1"></div>
-      <div class="col-md-2 text-center"><h5 class="center">ジャンル:</h5></div>
-      <div class="col-md-9"><h5 class="center"><%= novel.genres.pluck(:genre_name).join(' / ') %></h5></div>
+      <div class="col-md-2 text-center center"><h5>ジャンル:</h5></div>
+      <div class="col-md-9  center"><h5><%= novel.genres.pluck(:genre_name).join(' / ') %></h5></div>
      </div>
 
-     <div class="row">
+     <div class="row center">
       <div class="col-md-1"></div>
-      <div class="col-md-2 text-center"><h5 class="center">サイト名:</h5></div>
-      <div class="col-md-9"><h5 class="center"><%= novel.site_name %></h5></div>
+      <div class="col-md-2 text-center center"><h5>サイト名:</h5></div>
+      <div class="col-md-9 center"><h5><%= novel.site_name %></h5></div>
      </div>
 
-     <div class="row">
+     <div class="row center">
       <div class="col-md-1"></div>
-      <div class="col-md-2 text-center"><h5 class="center">レビュー:</h5></div>
-      <div class="col-md-9"><h5 class="center"><%= novel.review.present? ? novel.review : "レビューはありません"  %></h5></div>
+      <div class="col-md-2 text-center center"><h5>レビュー:</h5></div>
+      <div class="col-md-9 center"><h5><%= novel.review.present? ? novel.review : "レビューはありません"  %></h5></div>
      </div>
 
-     <div class="row">
+     <div class="row center">
       <div class="col-md-1"></div>
-      <div class="col-md-2 text-center"><h5 class="center">評価:</h5></div>
-      <div class="col-md-3 text-center"><%= render "public/novels/static_rate", novel: novel %></div>
-      <div class="col-md-6 text-center"><h5 class="center">投稿日<%= l(novel.created_at) %></h5></div>
+      <div class="col-md-2 text-center center"><h5>評価:</h5></div>
+      <div class="col-md-3 text-center center"><%= render "public/novels/static_rate", novel: novel %></div>
+      <div class="col-md-6 text-center center"><h5>投稿日<%= l(novel.created_at) %></h5></div>
      </div>
     </div>
 
