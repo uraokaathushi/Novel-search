@@ -23,6 +23,19 @@
 
 body {
   background-image: image-url("main.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  animation: moveBackground 30s linear infinite;
+}
+
+@keyframes moveBackground {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
 }
     /* 全ての画面のスタイル */
 
